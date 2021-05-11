@@ -12,6 +12,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class Animal {
@@ -26,7 +27,7 @@ public class Animal {
     private String physicalCondition;
     private Date animalArrived;
     private Date animalLeft;
-    private Cage cage;
+    private List<String> cage;
     private double weight;
     private double height;
     private Animal couple;
