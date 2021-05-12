@@ -21,9 +21,9 @@ public class Provider {
 
     private String name;
     private String kind;
-    private String address;
+    private String city;
     private Date cooperationStartDate;
-    private Date cooperationFinishDate;
+    private Date cooperationEndDate;
 
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
