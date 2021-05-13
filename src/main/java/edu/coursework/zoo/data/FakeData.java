@@ -35,39 +35,39 @@ public class FakeData {
 
     private List<Provider> providerList = new ArrayList<>(
             Arrays.asList(
-                    new Provider("1", "Jhon", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("2", "Milon", "Head", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("3", "Dudas", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("4", "Loli", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("5", "Nina", "Worker", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("6", "Masha", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("7", "Katya", "Head", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("8", "Lora", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("9", "Vara", "Worker", "London", new Date(1212121212121L),
-                            new Date(1212121212121L)),
-                    new Provider("10", "Oleg", "Manager", "London", new Date(1212121212121L),
-                            new Date(1212121212121L))));
+                    new Provider("1", "Jhon", "Manager", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("2", "Milon", "Head", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("3", "Dudas", "Manager", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("4", "Loli", "Manager", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("5", "Nina", "Worker", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("6", "Masha", "Manager", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("7", "Katya", "Head", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("8", "Lora", "Manager", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("9", "Vara", "Worker", "London", "2020-05-06",
+                            "2020-05-06"),
+                    new Provider("10", "Oleg", "Manager", "London", "2020-05-06",
+                            "2020-05-06")));
 
     private List<Feed> feedList = new ArrayList<>(
             Arrays.asList(
-                    new Feed("1", "Apple", new Date(1212121212121L), 3, 10000, providerList.get(0)),
-                    new Feed("2", "Mango", new Date(1212121212121L), 5, 10000, providerList.get(0)),
-                    new Feed("3", "Meat", new Date(1212121212121L), 7, 12000, providerList.get(0)),
-                    new Feed("4", "Water", new Date(1212121212121L), 9, 6000, providerList.get(0)),
-                    new Feed("5", "Potato", new Date(1212121212121L), 5, 10000, providerList.get(0)),
-                    new Feed("6", "Tomato", new Date(1212121212121L), 6, 15000, providerList.get(0)),
-                    new Feed("7", "Bread", new Date(1212121212121L), 4, 10000, providerList.get(0)),
-                    new Feed("8", "Orange", new Date(1212121212121L), 6, 19000, providerList.get(0)),
-                    new Feed("9", "Papaya", new Date(1212121212121L), 3, 1000, providerList.get(0)),
-                    new Feed("10", "Pineapple", new Date(1212121212121L), 6, 10000, providerList.get(0))));
+                    new Feed("1", "Apple", "2020-05-06", 3, 10000, providerList.get(0)),
+                    new Feed("2", "Mango", "2020-05-06", 5, 10000, providerList.get(0)),
+                    new Feed("3", "Meat", "2020-05-06", 7, 12000, providerList.get(0)),
+                    new Feed("4", "Water", "2020-05-06", 9, 6000, providerList.get(0)),
+                    new Feed("5", "Potato", "2020-05-06", 5, 10000, providerList.get(0)),
+                    new Feed("6", "Tomato", "2020-05-06", 6, 15000, providerList.get(0)),
+                    new Feed("7", "Bread", "2020-05-06", 4, 10000, providerList.get(0)),
+                    new Feed("8", "Orange", "2020-05-06", 6, 19000, providerList.get(0)),
+                    new Feed("9", "Papaya", "2020-05-06", 3, 1000, providerList.get(0)),
+                    new Feed("10", "Pineapple", "2020-05-06", 6, 10000, providerList.get(0))));
 
     public List<Administration> getAdministrations() {
         return administrations;

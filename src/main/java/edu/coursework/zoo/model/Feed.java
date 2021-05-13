@@ -22,7 +22,7 @@ public class Feed {
     private String id;
 
     private String kind;
-    private Date dateOfArrival;
+    private String dateOfArrival;
     private int amountOfFeed;
     private double price;
     private Provider provider;
@@ -31,7 +31,7 @@ public class Feed {
     private Date modified_at;
     private String description;
 
-    public Feed(String id, String kind, Date dateOfArrival, int amountOfFeed, double price, Provider provider) {
+    public Feed(String id, String kind, String dateOfArrival, int amountOfFeed, double price, Provider provider) {
         this.id = id;
         this.kind = kind;
         this.dateOfArrival = dateOfArrival;

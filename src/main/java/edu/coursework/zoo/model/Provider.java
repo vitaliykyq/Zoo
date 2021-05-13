@@ -24,15 +24,15 @@ public class Provider {
     private String name;
     private String kind;
     private String address;
-    private Date cooperationStartDate;
-    private Date cooperationFinishDate;
+    private String cooperationStartDate;
+    private String cooperationFinishDate;
 
     private Date created_at;
     private Date modified_at;
     private String description;
 
-    public Provider(String id, String name, String kind, String address, Date cooperationStartDate,
-                    Date cooperationFinishDate) {
+    public Provider(String id, String name, String kind, String address, String cooperationStartDate,
+                    String cooperationFinishDate) {
         this.id = id;
         this.name = name;
         this.kind = kind;

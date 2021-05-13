@@ -12,16 +12,18 @@
     <div class="updateForm" style="margin-bottom: 150px">
         <form id="dataMain" action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
               method="POST">
-            <label for="num1">Kind</label>
-            <input id="num1" th:field="*{kind}"  required>
-            <label for="num2">Date Of Arrival</label>
-            <input id="num2" th:field="*{dateOfArrival}"  required>
-            <label for="num3">Amount Of Feed</label>
-            <input id="num3" th:field="*{amountOfFeed}"  required>
-            <label for="num4">Price</label>
-            <input id="num4" th:field="*{price}"  required>
-            <label for="num5">Civil</label>
-            <div id="num5">
+            <label for="num1">Id</label>
+            <input id="num1" type="number" readonly th:field="*{id}"/>
+            <label for="num2">Kind</label>
+            <input id="num2" th:field="*{kind}"  required>
+            <label for="num3">Date Of Arrival</label>
+            <input id="num3" th:field="*{dateOfArrival}"  required>
+            <label for="num4">Amount Of Feed</label>
+            <input id="num4" th:field="*{amountOfFeed}"  required>
+            <label for="num5">Price</label>
+            <input id="num5" th:field="*{price}"  required>
+            <label for="num6">Civil</label>
+            <div id="num6">
                 <label for="id">Name</label>
                 <select id="id" style="transition: 0.5s" th:field="*{provider.id}">
                     <option th:each="providerIdList: ${providerIdList}"

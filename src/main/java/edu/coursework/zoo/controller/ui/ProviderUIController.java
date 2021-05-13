@@ -54,15 +54,15 @@ public class ProviderUIController {
         String name = provider.getName();
         String kind = provider.getKind();
         String address = provider.getAddress();
-        Date cooperationStartDate = provider.getCooperationStartDate();
-        Date cooperationFinishDate = provider.getCooperationFinishDate();
+        String cooperationStartDate = provider.getCooperationStartDate();
+        String cooperationFinishDate = provider.getCooperationFinishDate();
         List<Provider> providerList = service.getAll();
 
         if (name != null && name.length() > 0
                 && kind != null && kind.length() > 0
                 && address != null && address.length() > 0
-                && cooperationStartDate != null
-                && cooperationFinishDate != null) {
+                && cooperationStartDate != null && cooperationStartDate.length() > 0
+                && cooperationFinishDate != null && cooperationFinishDate.length() > 0) {
             model.addAttribute("provider", service.create(provider));
             return "redirect:/ui/provider/get/all";
         }

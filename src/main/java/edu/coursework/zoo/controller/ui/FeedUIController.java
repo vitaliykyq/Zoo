@@ -72,17 +72,17 @@ public class FeedUIController {
     }
 
     @PostMapping("/add")
-    public String add(Model model, @ModelAttribute("employee") @RequestBody Feed feed) throws ParseException {
+    public String add(Model model, @ModelAttribute("employee") @RequestBody Feed feed) {
 
         String kind = feed.getKind();
-        Date dateOfArrival = new SimpleDateFormat("dd/MM/yyyy").parse(feed.getDateOfArrival().toString());
+        String dateOfArrival = feed.getDateOfArrival();
         int amountOfFeed = feed.getAmountOfFeed();
         double price = feed.getPrice();
         feed.setProvider(providerService.getAll().get(Integer.parseInt(feed.getProvider().getId()) - 1));
         /*List<Feed> feedList = feedService.getAll();*/
 
         if (kind != null && kind.length() > 0
-                && dateOfArrival != null
+                && dateOfArrival != null && dateOfArrival.length() > 0
                 && amountOfFeed > 0
                 && price > 0) {
             model.addAttribute("feed", feedService.create(feed));
