@@ -12,6 +12,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Data
 public class Veterinarian {
@@ -23,7 +24,7 @@ public class Veterinarian {
     private ArrayList<String> responsibilities;
     private String education;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }

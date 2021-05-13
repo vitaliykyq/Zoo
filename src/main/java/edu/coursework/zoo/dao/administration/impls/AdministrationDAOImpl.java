@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -64,7 +65,7 @@ public class AdministrationDAOImpl implements IAdministrationDAO {
         String id = String.valueOf(this.getAll().stream()
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
-        administration.setCreated_at(LocalDateTime.now());
+        administration.setCreated_at(new Date());
         administration.setId(id);
         this.getAll().add(administration);
         return administration;
@@ -75,7 +76,7 @@ public class AdministrationDAOImpl implements IAdministrationDAO {
         Administration updatedStadium = this.getById(administration.getId());
         updatedStadium.setPosition(administration.getPosition());
         updatedStadium.setControlArea(administration.getControlArea());
-        updatedStadium.setModified_at(LocalDateTime.now());
+        updatedStadium.setModified_at(new Date());
 
         return updatedStadium;
 

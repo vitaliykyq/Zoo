@@ -8,13 +8,15 @@ package edu.coursework.zoo.model;
     @since:    14.04.2021
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Provider {
 
     private String id;
@@ -25,7 +27,18 @@ public class Provider {
     private Date cooperationStartDate;
     private Date cooperationFinishDate;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
+
+    public Provider(String id, String name, String kind, String address, Date cooperationStartDate,
+                    Date cooperationFinishDate) {
+        this.id = id;
+        this.name = name;
+        this.kind = kind;
+        this.address = address;
+        this.cooperationStartDate = cooperationStartDate;
+        this.cooperationFinishDate = cooperationFinishDate;
+        created_at = new Date();
+    }
 }

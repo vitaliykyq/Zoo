@@ -23,7 +23,7 @@ public class Nutrition {
     private ArrayList<Date> feedingTime;
     private String season;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }

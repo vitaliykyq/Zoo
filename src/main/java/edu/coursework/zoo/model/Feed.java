@@ -8,13 +8,15 @@ package edu.coursework.zoo.model;
     @since:    14.04.2021
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Feed {
 
     private String id;
@@ -25,7 +27,17 @@ public class Feed {
     private double price;
     private Provider provider;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
+
+    public Feed(String id, String kind, Date dateOfArrival, int amountOfFeed, double price, Provider provider) {
+        this.id = id;
+        this.kind = kind;
+        this.dateOfArrival = dateOfArrival;
+        this.amountOfFeed = amountOfFeed;
+        this.price = price;
+        this.provider = provider;
+        created_at = new Date();
+    }
 }

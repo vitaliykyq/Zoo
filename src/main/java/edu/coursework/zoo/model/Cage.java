@@ -29,8 +29,8 @@ public class Cage {
     private Date settled;
     private Date eviction;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 
     public Cage(String id, int numOfCage, Date settled, Date eviction) {
@@ -38,6 +38,6 @@ public class Cage {
         this.numOfCage = numOfCage;
         this.settled = settled;
         this.eviction = eviction;
-        this.created_at = LocalDateTime.now();
+        this.created_at = new Date();
     }
 }

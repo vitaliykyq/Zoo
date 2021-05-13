@@ -27,7 +27,7 @@ public class Employee {
     private Date resigned;
     private Object profession;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }

@@ -13,6 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -25,14 +26,14 @@ public class Administration {
     private String position;
     private String controlArea;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 
     public Administration(String id, String position, String controlArea) {
         this.id = id;
         this.position = position;
         this.controlArea = controlArea;
-        this.created_at = LocalDateTime.now();
+        this.created_at = new Date();
     }
 }

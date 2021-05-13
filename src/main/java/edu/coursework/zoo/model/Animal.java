@@ -8,12 +8,16 @@ package edu.coursework.zoo.model;
     @since:    14.04.2021
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Animal {
 
     private String id;
@@ -34,7 +38,7 @@ public class Animal {
     private Medical medical;
 
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }
