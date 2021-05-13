@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Provider</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="segment">
+    <h1>ADD PROVIDER</h1>
+</div>
+<div class="updateForm" style="margin-bottom: 150px">
+    <form action="#" th:action="@{/ui/provider/add}" th:object="${provider}"
+          method="POST">
+        <label for="num1">Name</label>
+        <input id="num1" type="number" th:field="*{name}"  required>
+        <label for="num2">Kind</label>
+        <input id="num2" type="number" th:field="*{kind}"  required>
+        <label for="num3">Address</label>
+        <input id="num3" type="number" th:field="*{address}"  required>
+        <label for="num4">Cooperation Start Date</label>
+        <input id="num4" type="number" th:field="*{cooperationStartDate}"  required>
+        <label for="num5">Cooperation Finish Date</label>
+        <input id="num5" type="number" th:field="*{cooperationFinishDate}"  required>
+        <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
+    </form>
+</div>
+<hr>
+
+<a th:href="@{/ui/provider/get/all}">
+    <button class="backBtn" style="padding: 0">Back</button>
+</a>
+</body>
+</html>

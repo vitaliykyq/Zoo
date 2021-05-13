@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Feed</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="segment">
+        <h1>UPDATE FEED</h1>
+    </div>
+    <div class="updateForm" style="margin-bottom: 150px">
+        <form id="dataMain" action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
+              method="POST">
+            <label for="num1">Kind</label>
+            <input id="num1" th:field="*{kind}"  required>
+            <label for="num2">Date Of Arrival</label>
+            <input id="num2" th:field="*{dateOfArrival}"  required>
+            <label for="num3">Amount Of Feed</label>
+            <input id="num3" th:field="*{amountOfFeed}"  required>
+            <label for="num4">Price</label>
+            <input id="num4" th:field="*{price}"  required>
+            <label for="num5">Civil</label>
+            <div id="num5">
+                <label for="id">Name</label>
+                <select id="id" style="transition: 0.5s" th:field="*{provider.id}">
+                    <option th:each="providerIdList: ${providerIdList}"
+                            th:value="${providerIdList.id}" th:text="${providerIdList.name}">
+                    </option>
+                </select>
+            </div>
+            <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
+        </form>
+    </div>
+    <hr>
+
+    <a th:href="@{/ui/feed/get/all}">
+        <button class="backBtn" style="padding: 0">Back</button>
+    </a>
+</body>
+</html>

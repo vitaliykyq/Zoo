@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Provider List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div style="position: absolute; left: 50%; transform: translate(-50%, 0)">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Kind</th>
+                    <th>Address</th>
+                    <th>Cooperation Start Date</th>
+                    <th>Cooperation Finish Date</th>
+                    <th>CreatedAt</th>
+                    <th>ModifiedAt</th>
+                    <th class="options" colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="provider: ${providerList}">
+                <td th:text="${provider.id}"></td>
+                <td th:text="${provider.name}"></td>
+                <td th:text="${provider.kind}"></td>
+                <td th:text="${provider.address}"></td>
+                <td th:text="${provider.cooperationStartDate}"></td>
+                <td th:text="${provider.cooperationFinishDate}"></td>
+                <td th:text="${provider.created_at}"></td>
+                <td th:text="${provider.modified_at}"></td>
+                <td>
+                    <a th:href="@{/ui/provider/delete/{id}(id=${provider.id})}">
+                        <button class="btn delBtn" style="transition: 0.5s; padding: 0">Delete</button>
+                    </a>
+                    <a th:href="@{/ui/provider/showUpdateForm/{id}(id=${provider.id})}">
+                        <button class="btn uppBtn" style="transition: 0.5s; padding: 0">Update</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href = "@{/ui/provider/showNewForm}">
+            <button class="btn addBtn" style="transition: 0.5s; padding: 0">Add</button>
+        </a>
+    </div>
+</body>
+</html>

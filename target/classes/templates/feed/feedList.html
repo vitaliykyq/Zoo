@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div style="position: absolute; left: 50%; transform: translate(-50%, 0)">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Kind</th>
+                    <th>Date Of Arrival</th>
+                    <th>Amount Of Feed</th>
+                    <th>Price</th>
+                    <th>Provider</th>
+                    <th>CreatedAt</th>
+                    <th>ModifiedAt</th>
+                    <th class="options" colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="feed: ${feedList}">
+                <td th:text="${feed.id}"></td>
+                <td th:text="${feed.kind}"></td>
+                <td th:text="${feed.dateOfArrival}"></td>
+                <td th:text="${feed.amountOfFeed}"></td>
+                <td th:text="${feed.price}"></td>
+                <td>
+                    <button class="btn btnDrop" th:text="${feed.provider.name}" th:data-id="${feed.id}"
+                            th:data-status="off" onclick="kl(this)" style="transition: 0.5s;  padding: 0"></button>
+                        <div class="dropItem" th:data-id-drop="${feed.id}" style="transition: 0.5s">
+                            <p>Name</p>
+                            <p th:text="${feed.provider.name}"></p>
+                            <p>Kind</p>
+                            <p th:text="${feed.provider.kind}"></p>
+                            <p>Address</p>
+                            <p th:text="${feed.provider.address}"></p>
+                            <p>Cooperation Start Date</p>
+                            <p th:text="${feed.provider.cooperationStartDate}"></p>
+                            <p>Cooperation Finish Date</p>
+                            <p th:text="${feed.provider.cooperationFinishDate}"></p>
+                            <p>CreatedAt</p>
+                            <p th:text="${feed.provider.created_at}"></p>
+                            <p>ModifiedAt</p>
+                            <p th:text="${feed.provider.modified_at}"></p>
+                            <a class="btnDropItem" th:href="@{/ui/provider/get/all}">
+                                <button class="btn updateBtn" style="transition: 0.5s;  padding: 0">Open</button>
+                            </a>
+                        </div>
+                </td>
+                <td th:text="${feed.created_at}"></td>
+                <td th:text="${feed.modified_at}"></td>
+                <td>
+                    <a th:href="@{/ui/feed/delete/{id}(id=${feed.id})}">
+                        <button class="btn delBtn" style="transition: 0.5s; padding: 0">Delete</button>
+                    </a>
+                    <a th:href="@{/ui/feed/showUpdateForm/{id}(id=${feed.id})}">
+                        <button class="btn uppBtn" style="transition: 0.5s; padding: 0">Update</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href = "@{/ui/feed/showNewForm}">
+            <button class="btn addBtn" style="transition: 0.5s; padding: 0">Add</button>
+        </a>
+    </div>
+    <script th:inline="javascript">
+        let listElem = document.querySelectorAll(".dropItem");
+        function kl(obj) {
+            listElem.forEach(elem => { elem.style.display = "none";});
+
+            if(obj.getAttribute("data-status") === "on") {
+                document.querySelectorAll(".btnDrop").
+                forEach(elem => { elem.setAttribute("data-status", "off"); })
+                return;
+            }
+
+            listElem.forEach(elem => {
+                if(elem.getAttribute("data-id-drop") === obj.getAttribute("data-id")) {
+                    elem.style.display = "grid";
+                    elem.style.position = "absolute";
+                    elem.style.gridTemplateColumns = "auto auto";
+                    obj.setAttribute("data-status", "on");
+                }else{
+                    document.querySelectorAll(".btnDrop").
+                    forEach(elem => { if(elem != obj) elem.setAttribute("data-status", "off"); })
+                }
+            })
+        }
+    </script>
+</body>
+</html>
