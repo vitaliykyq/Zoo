@@ -1,13 +1,15 @@
 package edu.coursework.zoo.service.provider;
 
 import edu.coursework.zoo.model.Administration;
+import edu.coursework.zoo.model.Provider;
+
 
 import java.util.List;
 
 public interface IProviderService {
-    Administration getById(String id);
-    Administration create(Administration administration);
-    Administration update(Administration administration);
-    Administration delete(String id);
-    List<Administration> getAll();
+    Provider getById(String id);
+    Provider create(Provider provider);
+    Provider update(Provider provider);
+    Provider delete(String id);
+    List<Provider> getAll();
 }

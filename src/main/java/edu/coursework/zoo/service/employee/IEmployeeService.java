@@ -1,13 +1,14 @@
 package edu.coursework.zoo.service.employee;
 
 import edu.coursework.zoo.model.Administration;
+import edu.coursework.zoo.model.Employee;
 
 import java.util.List;
 
 public interface IEmployeeService {
-    Administration getById(String id);
-    Administration create(Administration administration);
-    Administration update(Administration administration);
-    Administration delete(String id);
-    List<Administration> getAll();
+    Employee getById(String id);
+    Employee create(Employee employee);
+    Employee update(Employee employee);
+    Employee delete(String id);
+    List<Employee> getAll();
 }

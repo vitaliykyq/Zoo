@@ -22,7 +22,7 @@ public class Posterity {
     private Animal animal;
     private Date born;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }

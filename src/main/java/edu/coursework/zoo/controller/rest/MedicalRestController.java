@@ -1,47 +1,46 @@
 package edu.coursework.zoo.controller.rest;
 
 import edu.coursework.zoo.model.Animal;
-import edu.coursework.zoo.model.Builder;
+import edu.coursework.zoo.model.Medical;
 import edu.coursework.zoo.service.animal.IAnimalServiceImpl;
-import edu.coursework.zoo.service.builder.BuilderServiceImpl;
+import edu.coursework.zoo.service.medical.MedicalServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
-@RequestMapping("api/builders")
-public class BuilderRestController {
+@RequestMapping("api/medical")
+public class MedicalRestController {
     @Autowired
-    BuilderServiceImpl service;
+    MedicalServiceImpl service;
 
     @GetMapping("/get/all")
-    public List<Builder> getAll(){
+    public List<Medical> getAll(){
         return service.getAll() ;
     }
 
     @GetMapping("/get/{id}")
-    public Builder getById(@PathVariable("id") String id){
+    public Medical getById(@PathVariable("id") String id){
         return service.getById(id);
     }
 
 
     @GetMapping("/delete/{id}")
-    public Builder deleteById(@PathVariable("id")  String id){
+    public Medical deleteById(@PathVariable("id")  String id){
         return service.delete(id);
     }
 
 
     @PostMapping("/create/")
-    public Builder create(@RequestBody Builder builder){
-        return service.create(builder);
+    public Medical create(@RequestBody Medical medical){
+        return service.create(medical);
     }
 
 
     @PostMapping ("/update/")
-    public Builder update(@RequestBody Builder builder){
-        return service.update(builder);
+    public Medical update(@RequestBody Medical medical){
+        return service.update(medical);
     }
 }

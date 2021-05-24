@@ -1,13 +1,14 @@
 package edu.coursework.zoo.service.feed;
 
 import edu.coursework.zoo.model.Administration;
+import edu.coursework.zoo.model.Feed;
 
 import java.util.List;
 
 public interface IFeedService {
-    Administration getById(String id);
-    Administration create(Administration administration);
-    Administration update(Administration administration);
-    Administration delete(String id);
-    List<Administration> getAll();
+    Feed getById(String id);
+    Feed create(Feed feed);
+    Feed update(Feed feed);
+    Feed delete(String id);
+    List<Feed> getAll();
 }

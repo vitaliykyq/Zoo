@@ -11,38 +11,40 @@ package edu.coursework.zoo.service.administration.impls;
 import edu.coursework.zoo.dao.administration.impls.AdministrationDAOImpl;
 import edu.coursework.zoo.data.FakeData;
 import edu.coursework.zoo.model.Administration;
+import edu.coursework.zoo.repository.administration.interfaces.AdministartionRepository;
 import edu.coursework.zoo.service.administration.interfaces.IAdministrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class AdministrationServiceImpl implements IAdministrationService {
 
     @Autowired
-    FakeData fakeData;
-
-    @Autowired
-    AdministrationDAOImpl dao;
+    AdministartionRepository repository;
 
     @Override
     public Administration getById(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public Administration create(Administration administration) {
-        return null;
+        administration.setCreated_at(new Date());
+        return repository.save(administration);
     }
 
     @Override
     public Administration update(Administration administration) {
-        return null;
+        administration.setModified_at(new Date());
+        return repository.save(administration);
     }
 
     @Override
     public Administration delete(String id) {
+        repository.deleteById(id);
         return null;
     }
 
@@ -53,6 +55,6 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     @Override
     public List<Administration> getAll() {
-        return dao.getAll();
+        return repository.findAll();
     }
 }

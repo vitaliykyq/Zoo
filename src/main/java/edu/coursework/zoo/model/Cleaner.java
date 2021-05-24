@@ -8,12 +8,19 @@ package edu.coursework.zoo.model;
     @since:    14.04.2021
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection="cleaner")
 public class Cleaner {
 
     private String id;
@@ -22,7 +29,7 @@ public class Cleaner {
     private ArrayList<Animal> accessToAnimals;
     private ArrayList<String> cleaningType;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 }

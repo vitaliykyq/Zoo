@@ -11,13 +11,15 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "administration")
 public class Administration {
 
     private String id;
@@ -25,14 +27,11 @@ public class Administration {
     private String position;
     private String controlArea;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date created_at;
+    private Date modified_at;
     private String description;
 
-    public Administration(String id, String position, String controlArea) {
-        this.id = id;
-        this.position = position;
-        this.controlArea = controlArea;
-        this.created_at = LocalDateTime.now();
+
+    public Administration(String s, String support_manager, String the_first_and_second_sectors) {
     }
 }
