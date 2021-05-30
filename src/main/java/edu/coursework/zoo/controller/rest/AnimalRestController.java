@@ -1,8 +1,7 @@
 package edu.coursework.zoo.controller.rest;
 
 import edu.coursework.zoo.model.Animal;
-import edu.coursework.zoo.service.animal.IAnimalServiceImpl;
-import io.swagger.v3.oas.annotations.Operation;
+import edu.coursework.zoo.service.animal.AnimalServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("api/animals")
 public class AnimalRestController {
     @Autowired
-    IAnimalServiceImpl service;
+    AnimalServiceImpl service;
 
     @GetMapping("/get/all")
     public List<Animal> getAll(){

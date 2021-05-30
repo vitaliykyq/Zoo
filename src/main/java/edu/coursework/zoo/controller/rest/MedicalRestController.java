@@ -1,10 +1,7 @@
 package edu.coursework.zoo.controller.rest;
 
-import edu.coursework.zoo.model.Animal;
 import edu.coursework.zoo.model.Medical;
-import edu.coursework.zoo.service.animal.IAnimalServiceImpl;
 import edu.coursework.zoo.service.medical.MedicalServiceImpl;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class IAnimalServiceImpl implements IAnimalService {
+public class AnimalServiceImpl implements IAnimalService {
 
     @Autowired
     AnimalRepository repository;
