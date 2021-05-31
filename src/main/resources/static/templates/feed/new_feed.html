@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <form action="#" th:action="@{/ui/feeds/add}" th:object="${feed}"
+          method="POST">
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <label>Kind</label>
+        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+        <label>Date Of Arrival</label>
+        <input type="date" th:field="*{dateOfArrival}" placeholder="date" required>
+        <br><br>
+        <label>Amount</label>
+        <input type="number" th:field="*{amountOfFeed}" placeholder="amount" required>
+        <label>Price</label>
+        <input type="number" th:field="*{price}" placeholder="price" required>
+
+        <label>Provider</label>
+        <select th:field="*{providers}">
+            <option th:each="s : ${providers}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
+        <br><br>
+
+        <button type="submit" class="btn2"> SAVE</button>
+    </form>
+</div>
+    <br><br><br><br><br>
+    <hr>
+
+
+    </div>
+
+</body>
+</html>

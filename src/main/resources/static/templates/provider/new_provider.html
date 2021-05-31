@@ -1,0 +1,50 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 00:24
+  ~  * @Version new_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Provider Management System</title>
+
+</head>
+<body>
+
+
+    <div class="updateForm">
+        <form action="#" th:action="@{/ui/providers/update}" th:object="${provider}"
+              method="POST" >
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <label>Name</label>
+            <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+
+            <label>kind</label>
+            <input type="text" th:field="*{kind}"  >
+            <label>City</label>
+            <input type="text" th:field="*{kind}"  >
+            <label>Cooperation start</label>
+            <input type="date" th:field="*{cooperationStartDate}"  >
+            <label>Cooperation end</label>
+            <input type="date" th:field="*{cooperationEndDate}"  >
+
+            <button type="submit" class="btn1" >DONE</button>
+        </form>
+    </div>
+    <br><br><br><br><br>
+    <hr>
+
+
+
+    </div>
+
+</body>
+</html>

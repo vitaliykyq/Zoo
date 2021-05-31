@@ -1,0 +1,63 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/stadium/sportClub-page.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 28.04.21, 13:07
+  ~  * @Version sportClub-page.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Provider List</title>
+
+</head>
+<body>
+
+
+
+<div >
+    <a class="add" th:href = "@{/ui/providers/showNewProviderForm}"> +</a>
+</div>
+
+<div  ><table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Kind</th>
+            <th>City</th>
+            <th>Cooperation start</th>
+            <th>Cooperation end</th>
+           <!-- <th>Created at</th>
+            <th>Updated at</th>-->
+            <th>OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="providers: ${provider}">
+            <td th:text="${providers.id}"></td>
+            <td th:text="${providers.name}"></td>
+            <td th:text="${providers.kind}"></td>
+            <td th:text="${providers.city}"></td>
+            <td th:text="${providers.cooperationStartDate}"></td>
+            <td th:text="${providers.cooperationEndDate}"></td>
+            <td> <a th:href="@{/ui/coaches/showUpdateForm/{id}(id=${providers.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
+                <a th:href="@{/ui/coaches/delete/{id}(id=${providers.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text">
+    COACHES
+</div>
+
+<br><br><br><br><br>
+</body>
+
+</html>
