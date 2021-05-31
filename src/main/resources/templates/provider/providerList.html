@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <title>Provider List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
 <body>
-    <div style="position: absolute; left: 50%; transform: translate(-50%, 0)">
-        <table>
+
+<div style="text-align: left">
+
+    <div class="alex" onclick="animatedAlexHide()">
+        <img src="/image/alex.png">
+    </div>
+
+    <div class="showAlex" onclick="animatedAlexShow()">
+        <div class="circle"></div>
+        <div class="circle center"></div>
+        <div class="circle"></div>
+    </div>
+
+</div>
+
+<div class="general">
+    <a th:href = "@{/ui/provider/showNewForm}">
+        &#10010;
+    </a>
+</div>
+
+
+
+        <table class="list">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Kind</th>
-                    <th>Address</th>
-                    <th>Cooperation Start Date</th>
-                    <th>Cooperation Finish Date</th>
-                    <th>CreatedAt</th>
-                    <th>ModifiedAt</th>
-                    <th class="options" colspan="2">OPTIONS</th>
+                    <th style="width: 15%">Id</th>
+                    <th style="width: 10%">Name</th>
+                    <th style="width: 5%">Kind</th>
+                    <th style="width: 10%">Address</th>
+                    <th style="width: 10%">Cooperation Start Date</th>
+                    <th style="width: 10%">Cooperation Finish Date</th>
+                    <th style="width: 10%">CreatedAt</th>
+                    <th style="width: 10%">ModifiedAt</th>
+                    <th style="width: 20%" colspan="2">OPTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,18 +56,34 @@
                 <td th:text="${provider.modified_at}"></td>
                 <td>
                     <a th:href="@{/ui/provider/delete/{id}(id=${provider.id})}">
-                        <button class="btn delBtn" style="transition: 0.5s; padding: 0">Delete</button>
+                        <button>Delete</button>
                     </a>
                     <a th:href="@{/ui/provider/showUpdateForm/{id}(id=${provider.id})}">
-                        <button class="btn uppBtn" style="transition: 0.5s; padding: 0">Update</button>
+                        <button>Update</button>
                     </a>
                 </td>
             </tr>
             </tbody>
         </table>
-        <a th:href = "@{/ui/provider/showNewForm}">
-            <button class="btn addBtn" style="transition: 0.5s; padding: 0">Add</button>
-        </a>
-    </div>
 </body>
+<script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
+</script>
 </html>

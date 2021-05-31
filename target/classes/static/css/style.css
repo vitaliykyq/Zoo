@@ -1,212 +1,221 @@
-table {
-    min-width: 1100px;
-    border: 2px #898b95 solid;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
-}
-
-th {
-    color: #76777d;
-    box-shadow: 5px 5px 20px #babecc;
-    border-radius: 320px;
-    background: #cacaca;
-    height: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.updateForm form {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(4, auto) 40px;
-    row-gap: 14px;
-    column-gap: 20px;
-}
-
-.updateForm form button {
-    margin-left: auto;
-    margin-right: auto;
-    grid-column: 1 / span 2;
-}
-
-.updateText {
-    font-size: 1.7em;
+body{
+    background: url("../image/background.png") fixed;
+    background-size: cover;
     text-align: center;
+
 }
 
-body, html {
-    background-color: #ebecf0;
+.alex{
+    position: absolute;
+    top: -40px;
+    left: -38px;
+    animation: 1s linear 0s infinite alternate slidein;
+}
+
+.alex img{
+    cursor: pointer;
+    filter: brightness(0.6);
+}
+
+.showAlex{
+    top:-50px;
     text-align: center;
+    position: absolute;
+    background: #92722d;
+    padding: 5px 5px 10px;
+    display: inline-block;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    height: 5px;
 }
 
-body, p, input, select, textarea, button {
-    font-family: "Montserrat", sans-serif;
-    letter-spacing: -0.2px;
-    font-size: 16px;
+.showAlex:hover .circle{
+    background: #fae0a1;
 }
 
-div, p {
-    color: #898b95;
-    text-shadow: 1px 1px 1px #fff;
+.showAlex .circle{
+    border-radius: 100%;
+    height: 5px;
+    width: 5px;
+    background: #4c3c16;
+    float: left;
+    margin: 5px 5px auto 5px;
 }
 
-form {
-    padding: 16px;
-    width: 320px;
-    margin: 0 auto;
+.showAlex .center{
+    margin: 5px 1px 0 1px;
 }
 
-.segment {
-    padding: 32px 0;
-    text-align: center;
+
+.list{
+    margin-top: 160px;
+    background: #48e62194;
+    display: inline-block;
+    border: 5px inset #237f23;
+    border-collapse: collapse;
+    box-shadow: #129112 0 0 20px 12px;
 }
 
-a {
+.list tbody tr:hover{
+    background: #ceffc157;
+}
+
+.list tbody:nth-child(2n) tr td{
+    background: #48e62157;
+}
+
+
+.list tbody tr td {
+    transition: .2s;
+}
+
+.list tbody tr td a {
     text-decoration: none;
 }
 
-button, input, select {
-    border: 0;
-    outline: 0;
-    font-size: 16px;
-    border-radius: 320px;
-    padding: 16px;
-    background-color: #ebecf0;
-    text-shadow: 1px 1px 0 #fff;
+.list tbody tr td:hover{
+    background: #bcf8ae7d;
+    transition: .2s;
 }
 
-form label {
-    display: block;
-    margin-top: 12px;
-    width: 100%;
-    font-size: 1.2em;
-    text-align: left;
+
+
+.list td, .list th{
+    padding: 15px;
+    font-size: 20px;
 }
 
-input, select {
-    margin-right: 8px;
-    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
-    appearance: none;
-    -webkit-appearance: none;
-}
-input:focus {
-    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
-}
-
-select:focus {
-    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
-}
-
-button {
-    color: #61677c;
-    font-size: 0.9em;
-    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
-    transition: all 0.2s ease-in-out;
+.list button{
+    width: 75px;
+    text-align: center;
+    background: #094908;
+    color: #b2aeae;
+    border: none;
     cursor: pointer;
-    font-weight: 600;
-    margin: 10px 0 10px 0;
+    padding: 5px;
+    box-shadow: #263e87 0 0 9px 0;
+    transition-property: box-shadow;
+    transition-duration: .5s;
+    font-size: 15px;
 }
 
-button:hover {
-    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+.list button:hover{
+    transition: .5s;
 }
 
-button:active {
-    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+.list a:first-child:hover button{
+    box-shadow: #ff0000 0 0 20px 5px;
+    color:#ff6a6a;
 }
 
-.updateBtn {
+.list a:last-child:hover button{
+    box-shadow: #27ff00 0 0 20px 5px;
+    color:#64dd64;
+}
+
+
+.general{
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    top:35px;
+    right: 0;
+    animation: 1s linear 0s 1 forwards generalAnimated;
+}
+
+.general button,
+.general a{
+    background: #00ff00ad;
+    padding: 20px 30px 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+    border-radius: 100% 0 0 100%;
+    box-shadow: #00ff0063 6px 4px 0 3px;
+    transition-duration: .5s;
+    transition-property: background-color, box-shadow;
+    color:black;
+    border: none;
+    cursor: pointer;
+}
+
+.general button:hover,
+.general a:hover{
+    background: lime;
+    transition: .5s;
+    box-shadow: #1c8f1c 6px 4px 0 3px;
+}
+
+.elementSettings{
+    text-align: center;
+}
+
+.elementSettings table{
+    display: inline-block;
+    background: #27ff0054;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+.elementSettings table td{
+    font-size: 40px;
+    text-align: left;
+    border-bottom: 2px solid black;
+    padding: 5px 5px 10px;
+}
+
+.elementSettings table td input,
+.elementSettings table td select{
+    font-size: 35px;
+    border: 5px solid #7de675;
+    box-shadow: inset #35dd35 0 0 20px 4px;
+    outline: none;
+    padding: 5px;
+    transition-property: box-shadow, border;
+    transition-duration: .3s;
+}
+
+.elementSettings table td select {
     width: 100%;
-    height: 50px;
-    color: #0cae00;
 }
 
-.delBtn {
-    width: 100px;
-    height: 40px;
-    color: #ae1100;
+.elementSettings table td input:focus {
+    transition: .3s;
+    border: 5px solid #4f8846;
+    box-shadow: inset #1b6a0d 0 0 20px 4px;
 }
 
-.uppBtn {
-    width: 100px;
-    height: 40px;
-    color: #0cae00;
-}
-
-.addBtn {
-    width: 300px;
-    height: 50px;
-    color: #0077ae;
-}
-
-.newBtn {
-    width: 100%;
-    height: 50px;
-    color: #0cae00;
-}
-
-.backBtn {
-    padding: 0;
-    width: 500px;
-    height: 40px;
-    color: #ae1100;
-}
-
-.btnDrop {
-    width: 30px;
-    height: 30px;
-}
-
-.dropItem {
-    display: none;
-    width: auto;
-    height: auto;
-    background-color: #ebecf0;
-    padding: 30px;
-    transition: 0.3s;
-    border-radius: 25px;
-    border: 1px solid gray;
-    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
-}
-
-.dropItem p:nth-child(2n - 1) {
-    font-weight: bold;
-    padding-right: 30px;
-}
-
-/*.btnDrop:checked + .dropItem {
+.ButtonBack{
+    text-align: right;
+    display: inline-block;
     position: absolute;
-    grid-template-columns: auto auto;
-    transition: 0.3s ;
-}*/
-
-.btnDropItem {
-    grid-column: 1 / span 2;
+    bottom:35px;
+    left: 0;
+    animation: 1s linear 0s 1 forwards generalAnimatedBack;
 }
 
-.uppMenu {
-    display: none;
+.ButtonBack a{
+    background: #fff700ad;
+    padding: 20px 30px 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+    border-radius: 0 100% 100% 0;
+    box-shadow: #ffe00063 6px 4px 0 3px;
+    transition-duration: .5s;
+    transition-property: background-color, box-shadow;
+    color: black;
+    border: none;
+    cursor: pointer;
 }
 
-.checkBox:checked + .uppMenu {
-    left: 1000px;
-    position: absolute;
-    display: grid;
+.ButtonBack a:hover{
+    background: #fff700;
+    transition: .5s;
+    box-shadow: #ffe00087 6px 4px 0 3px;
 }
 
-.dropDownMenu {
-    min-width: auto;
-    position: absolute;
-    width: 100px;
-    background-color: #ebecf0;
-}
-
-.btnDropMenu {
-    width: 60px;
-    height: 40px;
-    color: #0cae00;
+td.insert:hover{
+    background: #fff7008f !important;
+    cursor: pointer;
 }

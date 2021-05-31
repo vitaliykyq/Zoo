@@ -4,31 +4,94 @@
     <meta charset="UTF-8">
     <title>Update Provider</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link  th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>UPDATE PROVIDER</h1>
+
+<div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img src="/image/alex.png">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
     </div>
-    <div class="updateForm" style="margin-bottom: 150px">
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/provider/update}" th:object="${provider}"
               method="POST">
-            <label for="num1">Name</label>
-            <input id="num1" type="number" th:field="*{name}"  required>
-            <label for="num2">Kind</label>
-            <input id="num2" type="number" th:field="*{kind}"  required>
-            <label for="num3">Address</label>
-            <input id="num3" type="number" th:field="*{address}"  required>
-            <label for="num4">Cooperation Start Date</label>
-            <input id="num4" type="number" th:field="*{cooperationStartDate}"  required>
-            <label for="num5">Cooperation Finish Date</label>
-            <input id="num5" type="number" th:field="*{cooperationFinishDate}"  required>
-            <button type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
-        </form>
-    </div>
-    <hr>
 
-    <a th:href="@{/ui/provider/get/all}">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
+            <h1>Update Provider</h1>
+
+            <table>
+                <tr>
+                    <td><label>Id</label></td>
+                    <td><input th:field="*{id}"  readonly required></td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input th:field="*{name}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Kind</label></td>
+                    <td><input th:field="*{kind}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Address</label></td>
+                    <td><input th:field="*{address}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Cooperation Start Date</label></td>
+                    <td><input th:field="*{cooperationStartDate}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Cooperation Finish Date</label></td>
+                    <td><input th:field="*{cooperationFinishDate}"  required></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+
+            <div class="general">
+                <button type="submit"> &#10004;</button>
+            </div>
+
+
+        </form>
+
+        <br><br>
+
+        <div class="ButtonBack">
+            <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
+        </div>
+
+    </div>
+</div>
+
 </body>
+<script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
+</script>
 </html>

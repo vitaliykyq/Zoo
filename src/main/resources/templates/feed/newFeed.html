@@ -4,62 +4,97 @@
     <meta charset="UTF-8">
     <title>Add Feed</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link  th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>ADD FEED</h1>
+
+<div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img src="/image/alex.png">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
     </div>
-    <div class="updateForm" style="margin-bottom: 150px">
+
+
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/feed/add}" th:object="${feed}"
               method="POST">
-            <label for="num1">Kind</label>
-            <input id="num1" th:field="*{kind}"  required>
-            <label for="num2">Date Of Arrival</label>
-            <input id="num2" th:field="*{dateOfArrival}"  required>
-            <label for="num3">Amount Of Feed</label>
-            <input id="num3" th:field="*{amountOfFeed}"  required>
-            <label for="num4">Price</label>
-            <input id="num4" th:field="*{price}"  required>
-            <label for="num5">Civil</label>
-            <div id="num5">
-                <label for="id">Name</label>
-                <select id="id" style="transition: 0.5s" th:field="*{provider.id}">
-                    <option th:each="providerIdList: ${providerIdList}"
-                            th:value="${providerIdList.id}" th:text="${providerIdList.name}">
-                    </option>
-                </select>
+
+            <h1>Add Provider</h1>
+
+            <table>
+                <tr>
+                    <td><label>Kind</label></td>
+                    <td><input th:field="*{kind}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Date Of Arrival</label></td>
+                    <td><input th:field="*{dateOfArrival}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Amount Of Feed</label></td>
+                    <td><input th:field="*{amountOfFeed}"  required></td>
+                </tr>
+                <tr>
+                    <td><label>Price</label></td>
+                    <td><input th:field="*{price}" type="number" required></td>
+                </tr>
+                <tr>
+                    <td><label>Feed</label></td>
+                    <td>
+                        <select th:field="*{provider.id}">
+                            <option th:each="providerIdList: ${providerIdList}"
+                                    th:value="${providerIdList.id}" th:text="${providerIdList.name}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+
+            <div class="general">
+                <button type="submit"> &#10004;</button>
             </div>
-            <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
+
         </form>
+
+        <br><br>
+
+        <div class="ButtonBack">
+            <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
+        </div>
+
     </div>
-    <hr>
+</div>
 
-    <a th:href="@{/ui/feed/get/all}">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
-    <script th:inline="javascript">
-        let listElem = document.querySelectorAll(".dropItem");
-        function kl(obj) {
-            listElem.forEach(elem => { elem.style.display = "none";});
-
-            if(obj.getAttribute("data-status") === "on") {
-                document.querySelectorAll(".btnDropMenu").
-                forEach(elem => { elem.setAttribute("data-status", "off"); })
-                return;
-            }
-
-            listElem.forEach(elem => {
-                if(elem.getAttribute("data-id-drop") === obj.getAttribute("data-id")) {
-                    elem.style.display = "grid";
-                    elem.style.position = "absolute";
-                    elem.style.gridTemplateColumns = "auto auto";
-                    obj.setAttribute("data-status", "on");
-                }else{
-                    document.querySelectorAll(".btnDropMenu").
-                    forEach(elem => { if(elem != obj) elem.setAttribute("data-status", "off"); })
-                }
-            })
-        }
-    </script>
 </body>
+<script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
+</script>
 </html>
