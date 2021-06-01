@@ -11,6 +11,8 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,8 +21,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "posterity")
 public class Posterity {
-
+@Id
     private String id;
 
     private Animal animal;

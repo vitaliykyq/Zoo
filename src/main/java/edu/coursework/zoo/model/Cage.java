@@ -11,6 +11,8 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,9 +22,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "cage")
 public class Cage {
-
+@Id
     private String id;
 
     private int numOfCage;
@@ -33,11 +35,5 @@ public class Cage {
     private Date modified_at;
     private String description;
 
-    public Cage(String id, int numOfCage, Date settled, Date eviction) {
-        this.id = id;
-        this.numOfCage = numOfCage;
-        this.settled = settled;
-        this.eviction = eviction;
-        this.created_at = new Date();
-    }
+
 }

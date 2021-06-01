@@ -11,14 +11,17 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "provider")
 public class Provider {
-
+@Id
     private String id;
 
     private String name;
@@ -31,14 +34,5 @@ public class Provider {
     private Date modified_at;
     private String description;
 
-    public Provider(String id, String name, String kind, String address, String cooperationStartDate,
-                    String cooperationFinishDate) {
-        this.id = id;
-        this.name = name;
-        this.kind = kind;
-        this.address = address;
-        this.cooperationStartDate = cooperationStartDate;
-        this.cooperationFinishDate = cooperationFinishDate;
-        created_at = new Date();
-    }
+
 }

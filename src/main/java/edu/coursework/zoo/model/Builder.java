@@ -11,6 +11,8 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -19,9 +21,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "builder")
 public class Builder {
-
+@Id
     private String id;
 
     private String typeRepairWork;
@@ -32,11 +34,4 @@ public class Builder {
     private Date modified_at;
     private String description;
 
-    public Builder(String id, String typeRepairWork, String workingClass, double rating) {
-        this.id = id;
-        this.typeRepairWork = typeRepairWork;
-        this.workingClass = workingClass;
-        this.rating = rating;
-        this.created_at = new Date();
-    }
 }

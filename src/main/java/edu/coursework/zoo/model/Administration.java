@@ -11,6 +11,8 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -18,9 +20,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "administration")
 public class Administration {
-
+@Id
     private String id;
 
     private String position;
@@ -30,10 +32,5 @@ public class Administration {
     private Date modified_at;
     private String description;
 
-    public Administration(String id, String position, String controlArea) {
-        this.id = id;
-        this.position = position;
-        this.controlArea = controlArea;
-        this.created_at = new Date();
-    }
+
 }
