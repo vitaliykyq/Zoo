@@ -1,12 +1,15 @@
+/*
 package edu.coursework.zoo.dao.provider.impls;
 
+*/
 /*
     @author:    Inessa
     @project:    Zoo 
     @class:    AdministrationImpls 
     @version:    1.0.0 
     @since:    14.04.2021     
-*/
+*//*
+
 
 import edu.coursework.zoo.dao.provider.interfaces.IProviderDAO;
 import edu.coursework.zoo.data.FakeData;
@@ -24,7 +27,8 @@ public class ProviderDAOImpl implements IProviderDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    */
+/*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -52,7 +56,8 @@ public class ProviderDAOImpl implements IProviderDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
+
 
     @Override
     public Provider getById(String id) {
@@ -101,3 +106,4 @@ public class ProviderDAOImpl implements IProviderDAO {
         return fakeData.getProviderList();
     }
 }
+*/

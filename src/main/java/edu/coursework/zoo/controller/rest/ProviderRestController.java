@@ -9,7 +9,7 @@ package edu.coursework.zoo.controller.rest;
 */
 
 import edu.coursework.zoo.model.Provider;
-import edu.coursework.zoo.service.provider.impls.ProviderServiceImpl;
+import edu.coursework.zoo.service.provider.ProviderServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -34,13 +34,5 @@ private String id;
     private Date modified_at;
     private String description;
 
-    public Feed(String id, String kind, String dateOfArrival, int amountOfFeed, double price, Provider provider) {
-        this.id = id;
-        this.kind = kind;
-        this.dateOfArrival = dateOfArrival;
-        this.amountOfFeed = amountOfFeed;
-        this.price = price;
-        this.provider = provider;
-        created_at = new Date();
-    }
+
 }

@@ -1,12 +1,15 @@
+/*
 package edu.coursework.zoo.dao.administration.impls;
 
+*/
 /*
     @author:    Inessa
     @project:    Zoo 
     @class:    AdministrationImpls 
     @version:    1.0.0 
     @since:    14.04.2021     
-*/
+*//*
+
 
 import edu.coursework.zoo.dao.administration.interfaces.IAdministrationDAO;
 import edu.coursework.zoo.data.FakeData;
@@ -24,7 +27,8 @@ public class AdministrationDAOImpl implements IAdministrationDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    */
+/*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -52,7 +56,8 @@ public class AdministrationDAOImpl implements IAdministrationDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
+
 
     @Override
     public Administration getById(String id) {
@@ -99,3 +104,4 @@ public class AdministrationDAOImpl implements IAdministrationDAO {
         return fakeData.getAdministrations();
     }
 }
+*/

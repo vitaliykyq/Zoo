@@ -1,12 +1,15 @@
+/*
 package edu.coursework.zoo.data;
 
+*/
 /*
     @author:    Inessa
     @project:    Zoo
     @class:    FakeData
     @version:    1.0.0
     @since:    14.04.2021
-*/
+*//*
+
 
 import edu.coursework.zoo.model.Administration;
 import edu.coursework.zoo.model.Feed;
@@ -93,3 +96,4 @@ public class FakeData {
         this.feedList = feedList;
     }
 }
+*/

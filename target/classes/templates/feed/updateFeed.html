@@ -4,40 +4,102 @@
     <meta charset="UTF-8">
     <title>Update Feed</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link  th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>UPDATE FEED</h1>
-    </div>
-    <div class="updateForm" style="margin-bottom: 150px">
-        <form id="dataMain" action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
-              method="POST">
-            <label for="num1">Id</label>
-            <input id="num1" type="number" readonly th:field="*{id}"/>
-            <label for="num2">Kind</label>
-            <input id="num2" th:field="*{kind}"  required>
-            <label for="num3">Date Of Arrival</label>
-            <input id="num3" th:field="*{dateOfArrival}"  required>
-            <label for="num4">Amount Of Feed</label>
-            <input id="num4" th:field="*{amountOfFeed}"  required>
-            <label for="num5">Price</label>
-            <input id="num5" th:field="*{price}"  required>
-            <label for="num6">Civil</label>
-            <div id="num6">
-                <label for="id">Name</label>
-                <select id="id" style="transition: 0.5s" th:field="*{provider.id}">
-                    <option th:each="providerIdList: ${providerIdList}"
-                            th:value="${providerIdList.id}" th:text="${providerIdList.name}">
-                    </option>
-                </select>
-            </div>
-            <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
-        </form>
-    </div>
-    <hr>
+    <div>
+        <div style="text-align: left">
 
-    <a th:href="@{/ui/feed/get/all}">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
+            <div class="alex" onclick="animatedAlexHide()">
+                <img src="/image/alex.png">
+            </div>
+
+            <div class="showAlex" onclick="animatedAlexShow()">
+                <div class="circle"></div>
+                <div class="circle center"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+
+
+        <div class="elementSettings">
+            <form id="dataMain" action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
+                  method="POST">
+
+                <h1>Update Provider</h1>
+
+                <table>
+                    <tr>
+                        <td><label>Id</label></td>
+                        <td><input th:field="*{id}" readonly required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Kind</label></td>
+                        <td><input th:field="*{kind}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Date Of Arrival</label></td>
+                        <td><input th:field="*{dateOfArrival}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Amount Of Feed</label></td>
+                        <td><input th:field="*{amountOfFeed}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Price</label></td>
+                        <td><input th:field="*{price}" type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Feed</label></td>
+                        <td>
+                            <select th:field="*{provider.id}">
+                                <option th:each="providerIdList: ${providerIdList}"
+                                        th:value="${providerIdList.id}" th:text="${providerIdList.name}">
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+
+                <div class="general">
+                    <button type="submit"> &#10004;</button>
+                </div>
+
+            </form>
+
+            <br><br>
+
+            <div class="ButtonBack">
+                <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
 </body>
+<script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
+</script>
 </html>

@@ -10,8 +10,8 @@ package edu.coursework.zoo.controller.ui;
 
 import edu.coursework.zoo.model.Feed;
 import edu.coursework.zoo.model.Provider;
-import edu.coursework.zoo.service.feed.impls.FeedServiceImpl;
-import edu.coursework.zoo.service.provider.impls.ProviderServiceImpl;
+import edu.coursework.zoo.service.feed.FeedServiceImpl;
+import edu.coursework.zoo.service.provider.ProviderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

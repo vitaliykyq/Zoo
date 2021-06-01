@@ -1,12 +1,15 @@
+/*
 package edu.coursework.zoo.dao.feed.impls;
 
+*/
 /*
     @author:    Inessa
     @project:    Zoo 
     @class:    AdministrationImpls 
     @version:    1.0.0 
     @since:    14.04.2021     
-*/
+*//*
+
 
 import edu.coursework.zoo.dao.feed.interfaces.IFeedDAO;
 import edu.coursework.zoo.data.FakeData;
@@ -24,7 +27,8 @@ public class FeedDAOImpl implements IFeedDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    */
+/*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -52,7 +56,8 @@ public class FeedDAOImpl implements IFeedDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
+
 
     @Override
     public Feed getById(String id) {
@@ -102,3 +107,4 @@ public class FeedDAOImpl implements IFeedDAO {
         return fakeData.getFeedList();
     }
 }
+*/

@@ -1,14 +1,19 @@
+/*
 package edu.coursework.zoo.controller.rest;
 
+*/
 /*
     @author:    Inessa
     @project:    Zoo 
     @class:    AdministrationRestController 
     @version:    1.0.0 
     @since:    14.04.2021     
-*/
+*//*
 
-/*http://localhost:8080/api/administration/get/all*/
+
+*/
+/*http://localhost:8080/api/administration/get/all*//*
+
 import edu.coursework.zoo.model.Administration;
 import edu.coursework.zoo.service.administration.impls.AdministrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,3 +36,4 @@ public class AdministrationRestController {
     }
 
 }
+*/
