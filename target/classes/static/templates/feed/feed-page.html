@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Feed List</title>
+</head>
+<body>
+
+
+
+<div >
+    <a class="add" th:href = "@{/ui/feeds/showNewFeedForm}"> +</a>
+</div>
+
+<div  ><table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kind</th>
+            <th>Arrival</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Provider</th>
+           <!-- <th>Created at</th>
+            <th>Updated at</th>-->
+            <th>OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="feeds: ${feed}">
+            <td th:text="${feeds.id}"></td>
+            <td th:text="${feeds.kind}"></td>
+            <td th:text="${feeds.dateOfArrival}"></td>
+            <td th:text="${feeds.amountOfFeed}"></td>
+            <td th:text="${feeds.price}"></td>
+            <td th:text="${feeds.provider.name}"></td>
+            <td> <a th:href="@{/ui/feeds/showUpdateForm/{id}(id=${coaches.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
+                <a th:href="@{/ui/feeds/delete/{id}(id=${coaches.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br><br><br><br><br>
+</body>
+
+</html>
