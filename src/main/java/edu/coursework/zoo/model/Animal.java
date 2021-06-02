@@ -28,7 +28,7 @@ public class Animal {
     private String kind;
     private String climaticZone;
     private Nutrition nutrition;
-    private int age;
+    private int year;
     private String gender;
     private String physicalCondition;
     private Date animalArrived;

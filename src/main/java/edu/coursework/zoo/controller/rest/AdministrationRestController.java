@@ -1,39 +1,43 @@
-/*
 package edu.coursework.zoo.controller.rest;
-
-*/
-/*
-    @author:    Inessa
-    @project:    Zoo 
-    @class:    AdministrationRestController 
-    @version:    1.0.0 
-    @since:    14.04.2021     
-*//*
-
-
-*/
-/*http://localhost:8080/api/administration/get/all*//*
 
 import edu.coursework.zoo.model.Administration;
 import edu.coursework.zoo.service.administration.impls.AdministrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("api/administration")
 public class AdministrationRestController {
-
     @Autowired
     AdministrationServiceImpl service;
 
     @GetMapping("/get/all")
-    public List<Administration> getAdministrations(){
+    public List<Administration> getAll(){
         return service.getAll() ;
     }
 
+    @GetMapping("/get/{id}")
+    public Administration getById(@PathVariable("id") String id){
+        return service.getById(id);
+    }
+
+
+    @GetMapping("/delete/{id}")
+    public Administration deleteById(@PathVariable("id")  String id){
+        return service.delete(id);
+    }
+
+
+    @PostMapping("/create/")
+    public Administration create(@RequestBody Administration administration){
+        return service.create(administration);
+    }
+
+
+    @PostMapping ("/update/")
+    public Administration update(@RequestBody Administration administration){
+        return service.update(administration);
+    }
 }
-*/
