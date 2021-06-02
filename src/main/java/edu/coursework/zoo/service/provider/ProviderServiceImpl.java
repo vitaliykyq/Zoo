@@ -27,10 +27,14 @@ public class ProviderServiceImpl implements IProviderService {
 
     @Override
     public Provider update(Provider provider) {
-
         provider.setModified_at(new Date());
-        return repository.save(provider);
+        provider.setCreated_at(repository.findById(provider.getId())
+                .orElse(null)
+                .getCreated_at());
+        repository.save(provider);
+        return provider;
     }
+
 
     @Override
     public Provider delete(String id) {

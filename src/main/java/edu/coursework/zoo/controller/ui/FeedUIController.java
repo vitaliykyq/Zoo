@@ -56,7 +56,7 @@ public class FeedUIController {
     public String update(Model model,
                          @ModelAttribute("employee") @RequestBody Feed feed) {
 
-        feed.setProvider(providerService.getAll().get(Integer.parseInt(feed.getProvider().getId()) - 1));
+        feed.setProvider(providerService.getById(feed.getProvider().getId()));
         feedService.update(feed);
         return "redirect:/ui/feed/get/all";
     }
@@ -78,8 +78,7 @@ public class FeedUIController {
         String dateOfArrival = feed.getDateOfArrival();
         int amountOfFeed = feed.getAmountOfFeed();
         double price = feed.getPrice();
-        feed.setProvider(providerService.getAll().get(Integer.parseInt(feed.getProvider().getId()) - 1));
-        /*List<Feed> feedList = feedService.getAll();*/
+        feed.setProvider(providerService.getById(feed.getProvider().getId()));
 
         if (kind != null && kind.length() > 0
                 && dateOfArrival != null && dateOfArrival.length() > 0

@@ -27,7 +27,7 @@
             <form id="dataMain" action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
                   method="POST">
 
-                <h1>Update Provider</h1>
+                <h1>Update Feed</h1>
 
                 <table>
                     <tr>
@@ -51,7 +51,7 @@
                         <td><input th:field="*{price}" type="number" required></td>
                     </tr>
                     <tr>
-                        <td><label>Feed</label></td>
+                        <td><label>Provider</label></td>
                         <td>
                             <select th:field="*{provider.id}">
                                 <option th:each="providerIdList: ${providerIdList}"
