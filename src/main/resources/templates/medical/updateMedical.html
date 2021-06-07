@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Feed</title>
+    <title>Add Medical</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body style="text-align: center" onclick="checkedTable()">
 <div>
     <div>
-        <form action="#" th:action="@{/ui/feed/update}" th:object="${feed}"
+        <form action="#" th:action="@{/ui/medical/update}" th:object="${medical}"
               method="POST">
 
-            <h1>Add Feed</h1>
+            <h1>Add Medical</h1>
 
                 <table class="edit">
                     <tr>
@@ -24,49 +24,46 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Kind</label></td>
+                        <td><label>Veterinarian</label></td>
                         <td>
                             <div class="input">
-                                <input th:field="*{kind}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>DateOfArrival</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{dateOfArrival}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>AmountOfFeed</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{amountOfFeed}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Price</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{price}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Provider</label></td>
-                        <td>
-                            <div class="input">
-                                <select th:field="*{provider}" onclick="checkedInput()" required>
-                                    <option th:each="providerListId: ${providerListId}"
-                                            th:value="${providerListId.id}" th:text="${providerListId.name}">
+                                <select th:field="*{veterinarian}" onclick="checkedInput()" required>
+                                    <option th:each="veterinarianListId: ${veterinarianListId}"
+                                            th:value="${veterinarianListId.id}" th:text="${veterinarianListId.employee.name}">
                                     </option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Vaccination</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{vaccination}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalWasSick</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{animalWasSick}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalIsSick</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{animalIsSick}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
                                 </select>
                                 <div class="border-line"></div>
                             </div>
@@ -78,7 +75,7 @@
             <br>
             <div class="control">
                 <div class="buttonBack">
-                    <a th:href = "@{/ui/feed/get/all}" class="containerButton">Back</a>
+                    <a th:href = "@{/ui/medical/get/all}" class="containerButton">Back</a>
                 </div>
                 <button type="submit">Update</button>
             </div>

@@ -4,97 +4,101 @@
     <meta charset="UTF-8">
     <title>Add Feed</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
-    <link  th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
-<body>
-
+<body style="text-align: center" onclick="checkedTable()">
 <div>
-    <div style="text-align: left">
-
-        <div class="alex" onclick="animatedAlexHide()">
-            <img src="/image/alex.png">
-        </div>
-
-        <div class="showAlex" onclick="animatedAlexShow()">
-            <div class="circle"></div>
-            <div class="circle center"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-
-
-
-    <div class="elementSettings">
+    <div>
         <form action="#" th:action="@{/ui/feed/add}" th:object="${feed}"
               method="POST">
 
             <h1>Add Feed</h1>
 
-            <table>
+            <table class="edit">
                 <tr>
                     <td><label>Kind</label></td>
-                    <td><input th:field="*{kind}"  required></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{kind}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td><label>Date Of Arrival</label></td>
-                    <td><input th:field="*{dateOfArrival}"  required></td>
+                    <td><label>DateOfArrival</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{dateOfArrival}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td><label>Amount Of Feed</label></td>
-                    <td><input th:field="*{amountOfFeed}"  required></td>
+                    <td><label>AmountOfFeed</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{amountOfFeed}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Price</label></td>
-                    <td><input th:field="*{price}" type="number" required></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{price}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Provider</label></td>
                     <td>
-                        <select th:field="*{provider.id}">
-                            <option th:each="providerIdList: ${providerIdList}"
-                                    th:value="${providerIdList.id}" th:text="${providerIdList.name}">
-                            </option>
-                        </select>
+                        <div class="input">
+                            <select th:field="*{provider}" onclick="checkedInput()" required>
+                                <option th:each="providerListId: ${providerListId}"
+                                        th:value="${providerListId.id}" th:text="${providerListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
                     </td>
                 </tr>
+
             </table>
+
+
             <br>
             <br>
 
-            <div class="general">
-                <button type="submit"> &#10004;</button>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/feed/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Add</button>
             </div>
-
         </form>
 
-        <br><br>
-
-        <div class="ButtonBack">
-            <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
-        </div>
 
     </div>
 </div>
-
 </body>
 <script>
-    let alex = document.querySelector(".alex");
-    let showAlex = document.querySelector(".showAlex");
 
-    function animatedAlexHide(){
-        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
-        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    let table = document.querySelector(".edit");
+    let check = false;
+
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
     }
 
-    function animatedAlexShow(){
-        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
-        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
-        setTimeout(addAnimatedAlex, 1000);
-    }
-
-    function addAnimatedAlex() {
-        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    function  checkedInput(){
+        check = true;
     }
 
 </script>
+
 </html>

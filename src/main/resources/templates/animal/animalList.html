@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
+</head>
+<body>
+<div style="text-align: left">
+
+    <div class="alex" onclick="animatedAlexHide()">
+        <img src="/image/alex.png">
+    </div>
+
+    <div class="showAlex" onclick="animatedAlexShow()">
+        <div class="circle"></div>
+        <div class="circle center"></div>
+        <div class="circle"></div>
+    </div>
+
+</div>
+
+<div class="general">
+    <a th:href = "@{/ui/animal/showNewForm}">
+        &#10010;
+    </a>
+</div>
+
+<table class="list">
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Kind</th>
+            <th scope="col">ClimaticZone</th>
+            <th scope="col">Nutrition</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">PhysicalCondition</th>
+            <th scope="col">AnimalArrived</th>
+            <th scope="col">AnimalLeft</th>
+            <th scope="col">Cage</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Height</th>
+            <th scope="col">Couple</th>
+            <th scope="col">Medical</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="animal: ${animalList}">
+            <td th:text="${animal.id}"></td>
+            <td th:text="${animal.kind}"></td>
+            <td th:text="${animal.climaticZone}"></td>
+            <td th:text="${animal.nutrition.feed.kind}"></td>
+            <td th:text="${animal.age}"></td>
+            <td th:text="${animal.gender}"></td>
+            <td th:text="${animal.physicalCondition}"></td>
+            <td th:text="${animal.animalArrived}"></td>
+            <td th:text="${animal.animalLeft}"></td>
+            <td>
+                <ol>
+                    <li th:each="cageList: ${animal.cage}">
+                        <span th:text="${cageList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td th:text="${animal.weight}"></td>
+            <td th:text="${animal.height}"></td>
+            <td th:text="${animal.couple.kind}"></td>
+            <td th:text="${animal.medical.veterinarian.employee.name}"></td>
+            <td th:text="${animal.created_at}"></td>
+            <td th:text="${animal.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/animal/delete/{id}(id=${animal.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/animal/showUpdateForm/{id}(id=${animal.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/animal/showNewApplicantForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
+</script>
+
+</html>

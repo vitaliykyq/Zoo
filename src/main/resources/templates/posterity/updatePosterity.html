@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Provider</title>
+    <title>Add Posterity</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body style="text-align: center" onclick="checkedTable()">
 <div>
     <div>
-        <form action="#" th:action="@{/ui/provider/update}" th:object="${provider}"
+        <form action="#" th:action="@{/ui/posterity/update}" th:object="${posterity}"
               method="POST">
 
-            <h1>Add Provider</h1>
+            <h1>Add Posterity</h1>
 
                 <table class="edit">
                     <tr>
@@ -24,46 +24,23 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Name</label></td>
+                        <td><label>Animal</label></td>
                         <td>
                             <div class="input">
-                                <input th:field="*{name}" onclick="checkedInput()" required/>
+                                <select th:field="*{animal}" onclick="checkedInput()" required>
+                                    <option th:each="animalListId: ${animalListId}"
+                                            th:value="${animalListId.id}" th:text="${animalListId.kind}">
+                                    </option>
+                                </select>
                                 <div class="border-line"></div>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Kind</label></td>
+                        <td><label>Born</label></td>
                         <td>
                             <div class="input">
-                                <input th:field="*{kind}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>City</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{city}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>CooperationStartDate</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{cooperationStartDate}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>CooperationEndDate</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{cooperationEndDate}" onclick="checkedInput()" required/>
+                                <input th:field="*{born}" onclick="checkedInput()" required/>
                                 <div class="border-line"></div>
                             </div>
                         </td>
@@ -74,7 +51,7 @@
             <br>
             <div class="control">
                 <div class="buttonBack">
-                    <a th:href = "@{/ui/provider/get/all}" class="containerButton">Back</a>
+                    <a th:href = "@{/ui/posterity/get/all}" class="containerButton">Back</a>
                 </div>
                 <button type="submit">Update</button>
             </div>

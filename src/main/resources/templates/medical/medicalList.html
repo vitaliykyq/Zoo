@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Medical</caption>
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Veterinarian</th>
+            <th scope="col">Vaccination</th>
+            <th scope="col">AnimalWasSick</th>
+            <th scope="col">AnimalIsSick</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="medical: ${medicalList}">
+            <td th:text="${medical.id}"></td>
+            <td th:text="${medical.veterinarian.employee.name}"></td>
+            <td>
+                <ol>
+                    <li th:each="vaccinationList: ${medical.vaccination}">
+                        <span th:text="${vaccinationList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                    <li th:each="animalWasSickList: ${medical.animalWasSick}">
+                        <span th:text="${animalWasSickList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                    <li th:each="animalIsSickList: ${medical.animalIsSick}">
+                        <span th:text="${animalIsSickList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td th:text="${medical.created_at}"></td>
+            <td th:text="${medical.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/medical/delete/{id}(id=${medical.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/medical/showUpdateForm/{id}(id=${medical.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/medical/showNewApplicantForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>

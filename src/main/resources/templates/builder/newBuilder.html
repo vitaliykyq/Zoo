@@ -2,59 +2,54 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Provider</title>
+    <title>Add Builder</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body style="text-align: center" onclick="checkedTable()">
 <div>
     <div>
-        <form action="#" th:action="@{/ui/provider/add}" th:object="${provider}"
+        <form action="#" th:action="@{/ui/builder/add}" th:object="${builder}"
               method="POST">
 
-            <h1>Add Provider</h1>
+            <h1>Add Builder</h1>
 
             <table class="edit">
                 <tr>
-                    <td><label>Name</label></td>
+                    <td><label>TypeRepairWork</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{name}" onclick="checkedInput()" required/>
+                            <input th:field="*{typeRepairWork}" onclick="checkedInput()" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>Kind</label></td>
+                    <td><label>WorkingClass</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{kind}" onclick="checkedInput()" required/>
+                            <input th:field="*{workingClass}" onclick="checkedInput()" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>City</label></td>
+                    <td><label>Rating</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{city}" onclick="checkedInput()" required/>
+                            <input th:field="*{rating}" onclick="checkedInput()" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>CooperationStartDate</label></td>
+                    <td><label>Employee</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{cooperationStartDate}" onclick="checkedInput()" required/>
-                            <div class="border-line"></div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>CooperationEndDate</label></td>
-                    <td>
-                        <div class="input">
-                            <input th:field="*{cooperationEndDate}" onclick="checkedInput()" required/>
+                            <select th:field="*{employee}" onclick="checkedInput()" required>
+                                <option th:each="employeeListId: ${employeeListId}"
+                                        th:value="${employeeListId.id}" th:text="${employeeListId.name}">
+                                </option>
+                            </select>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -68,7 +63,7 @@
 
             <div class="control">
                 <div class="buttonBack">
-                    <a th:href = "@{/ui/provider/get/all}" class="containerButton">Back</a>
+                    <a th:href = "@{/ui/builder/get/all}" class="containerButton">Back</a>
                 </div>
                 <button type="submit">Add</button>
             </div>

@@ -2,59 +2,60 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Provider</title>
+    <title>Add Medical</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body style="text-align: center" onclick="checkedTable()">
 <div>
     <div>
-        <form action="#" th:action="@{/ui/provider/add}" th:object="${provider}"
+        <form action="#" th:action="@{/ui/medical/add}" th:object="${medical}"
               method="POST">
 
-            <h1>Add Provider</h1>
+            <h1>Add Medical</h1>
 
             <table class="edit">
                 <tr>
-                    <td><label>Name</label></td>
+                    <td><label>Veterinarian</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{name}" onclick="checkedInput()" required/>
+                            <select th:field="*{veterinarian}" onclick="checkedInput()" required>
+                                <option th:each="veterinarianListId: ${veterinarianListId}"
+                                        th:value="${veterinarianListId.id}" th:text="${veterinarianListId.employee.name}">
+                                </option>
+                            </select>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>Kind</label></td>
+                    <td><label>Vaccination</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{kind}" onclick="checkedInput()" required/>
+                            <select multiple th:field="*{vaccination}" onclick="checkedInput()" required>
+                                <option value="Test">Test</option>
+                            </select>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>City</label></td>
+                    <td><label>AnimalWasSick</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{city}" onclick="checkedInput()" required/>
+                            <select multiple th:field="*{animalWasSick}" onclick="checkedInput()" required>
+                                <option value="Test">Test</option>
+                            </select>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>CooperationStartDate</label></td>
+                    <td><label>AnimalIsSick</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{cooperationStartDate}" onclick="checkedInput()" required/>
-                            <div class="border-line"></div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>CooperationEndDate</label></td>
-                    <td>
-                        <div class="input">
-                            <input th:field="*{cooperationEndDate}" onclick="checkedInput()" required/>
+                            <select multiple th:field="*{animalIsSick}" onclick="checkedInput()" required>
+                                <option value="Test">Test</option>
+                            </select>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -68,7 +69,7 @@
 
             <div class="control">
                 <div class="buttonBack">
-                    <a th:href = "@{/ui/provider/get/all}" class="containerButton">Back</a>
+                    <a th:href = "@{/ui/medical/get/all}" class="containerButton">Back</a>
                 </div>
                 <button type="submit">Add</button>
             </div>

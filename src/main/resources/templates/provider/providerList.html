@@ -4,86 +4,66 @@
     <meta charset="UTF-8">
     <title>Provider List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link th:href="@{/css/animated.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 
-<div style="text-align: left">
 
-    <div class="alex" onclick="animatedAlexHide()">
-        <img src="/image/alex.png">
+
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Provider</caption>
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Kind</th>
+            <th scope="col">City</th>
+            <th scope="col">CooperationStartDate</th>
+            <th scope="col">CooperationEndDate</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="provider: ${providerList}">
+            <td th:text="${provider.id}"></td>
+            <td th:text="${provider.name}"></td>
+            <td th:text="${provider.kind}"></td>
+            <td th:text="${provider.city}"></td>
+            <td th:text="${provider.cooperationStartDate}"></td>
+            <td th:text="${provider.cooperationEndDate}"></td>
+            <td th:text="${provider.created_at}"></td>
+            <td th:text="${provider.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/provider/delete/{id}(id=${provider.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/provider/showUpdateForm/{id}(id=${provider.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/provider/showNewApplicantForm}" class="containerButton">Add</a>
     </div>
-
-    <div class="showAlex" onclick="animatedAlexShow()">
-        <div class="circle"></div>
-        <div class="circle center"></div>
-        <div class="circle"></div>
-    </div>
-
 </div>
-
-<div class="general">
-    <a th:href = "@{/ui/provider/showNewForm}">
-        &#10010;
-    </a>
-</div>
-
-
-
-        <table class="list">
-            <thead>
-                <tr>
-                    <th style="width: 15%">Id</th>
-                    <th style="width: 10%">Name</th>
-                    <th style="width: 5%">Kind</th>
-                    <th style="width: 10%">Address</th>
-                    <th style="width: 10%">Cooperation Start Date</th>
-                    <th style="width: 10%">Cooperation Finish Date</th>
-                    <th style="width: 10%">CreatedAt</th>
-                    <th style="width: 10%">ModifiedAt</th>
-                    <th style="width: 20%" colspan="2">OPTIONS</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr th:each="provider: ${providerList}">
-                <td th:text="${provider.id}"></td>
-                <td th:text="${provider.name}"></td>
-                <td th:text="${provider.kind}"></td>
-                <td th:text="${provider.address}"></td>
-                <td th:text="${provider.cooperationStartDate}"></td>
-                <td th:text="${provider.cooperationFinishDate}"></td>
-                <td th:text="${provider.created_at}"></td>
-                <td th:text="${provider.modified_at}"></td>
-                <td>
-                    <a th:href="@{/ui/provider/delete/{id}(id=${provider.id})}">
-                        <button>Delete</button>
-                    </a>
-                    <a th:href="@{/ui/provider/showUpdateForm/{id}(id=${provider.id})}">
-                        <button>Update</button>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
 </body>
 <script>
-    let alex = document.querySelector(".alex");
-    let showAlex = document.querySelector(".showAlex");
-
-    function animatedAlexHide(){
-        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
-        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
-    }
-
-    function animatedAlexShow(){
-        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
-        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
-        setTimeout(addAnimatedAlex, 1000);
-    }
-
-    function addAnimatedAlex() {
-        alex.style.animation = "1s linear 0s infinite alternate slidein";
-    }
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
 
 </script>
+
 </html>

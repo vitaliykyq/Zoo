@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Feed List</title>
+    <title>Posterity List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
@@ -12,16 +12,13 @@
 
 <div class="container">
     <table class="responsive-table">
-        <caption>List Feed</caption>
+        <caption>List Posterity</caption>
         <thead>
 
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Kind</th>
-            <th scope="col">DateOfArrival</th>
-            <th scope="col">AmountOfFeed</th>
-            <th scope="col">Price</th>
-            <th scope="col">Provider</th>
+            <th scope="col">Animal</th>
+            <th scope="col">Born</th>
             <th scope="col">CreatedAt</th>
             <th scope="col">ModifiedAt</th>
             <th scope="col" colspan="2">OPTIONS</th>
@@ -31,20 +28,17 @@
         </thead>
 
         <tbody>
-        <tr th:each="feed: ${feedList}">
-            <td th:text="${feed.id}"></td>
-            <td th:text="${feed.kind}"></td>
-            <td th:text="${feed.dateOfArrival}"></td>
-            <td th:text="${feed.amountOfFeed}"></td>
-            <td th:text="${feed.price}"></td>
-            <td th:text="${feed.provider.name}"></td>
-            <td th:text="${feed.created_at}"></td>
-            <td th:text="${feed.modified_at}"></td>
+        <tr th:each="posterity: ${posterityList}">
+            <td th:text="${posterity.id}"></td>
+            <td th:text="${posterity.animal.kind}"></td>
+            <td th:text="${posterity.born}"></td>
+            <td th:text="${posterity.created_at}"></td>
+            <td th:text="${posterity.modified_at}"></td>
             <td class="options">
-                <a  th:href="@{/ui/feed/delete/{id}(id=${feed.id})}">
+                <a  th:href="@{/ui/posterity/delete/{id}(id=${posterity.id})}">
                     <button class="first">Delete</button>
                 </a>
-                <a th:href="@{/ui/feed/showUpdateForm/{id}(id=${feed.id})}">
+                <a th:href="@{/ui/posterity/showUpdateForm/{id}(id=${posterity.id})}">
                     <button class="last">Edit</button>
                 </a>
             </td>
@@ -55,7 +49,7 @@
     <br>
 
     <div style="text-align: center">
-        <a th:href = "@{/ui/feed/showNewApplicantForm}" class="containerButton">Add</a>
+        <a th:href = "@{/ui/posterity/showNewApplicantForm}" class="containerButton">Add</a>
     </div>
 </div>
 </body>

@@ -8,6 +8,7 @@ package edu.coursework.zoo.controller.ui;
     @since:    26.04.2021     
 */
 
+import edu.coursework.zoo.model.Animal;
 import edu.coursework.zoo.model.Feed;
 import edu.coursework.zoo.model.Provider;
 import edu.coursework.zoo.service.feed.FeedServiceImpl;
@@ -17,10 +18,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/ui/feed")
@@ -47,18 +44,9 @@ public class FeedUIController {
         Feed feed = feedService.getById(id);
         model.addAttribute("feed", feed);
 
-        List<Provider> providerIdList = providerService.getAll();
-        model.addAttribute("providerIdList", providerIdList);
+        List<Provider> providerListId = providerService.getAll();
+        model.addAttribute("providerListId", providerListId);
         return "feed/updateFeed";
-    }
-
-    @PostMapping("/update")
-    public String update(Model model,
-                         @ModelAttribute("employee") @RequestBody Feed feed) {
-
-        feed.setProvider(providerService.getById(feed.getProvider().getId()));
-        feedService.update(feed);
-        return "redirect:/ui/feed/get/all";
     }
 
     @GetMapping("/showNewForm")
@@ -66,28 +54,22 @@ public class FeedUIController {
         Feed feed = new Feed();
         model.addAttribute("feed", feed);
 
-        List<Provider> providerIdList = providerService.getAll();
-        model.addAttribute("providerIdList", providerIdList);
+        List<Provider> providerListId = providerService.getAll();
+        model.addAttribute("providerListId", providerListId);
         return "feed/newFeed";
     }
 
     @PostMapping("/add")
     public String add(Model model, @ModelAttribute("employee") @RequestBody Feed feed) {
+        model.addAttribute("feed", feedService.create(feed));
+        return "redirect:/ui/feed/get/all";
+    }
 
-        String kind = feed.getKind();
-        String dateOfArrival = feed.getDateOfArrival();
-        int amountOfFeed = feed.getAmountOfFeed();
-        double price = feed.getPrice();
-        feed.setProvider(providerService.getById(feed.getProvider().getId()));
+    @PostMapping("/update")
+    public String update(Model model, @ModelAttribute("employee") @RequestBody Feed feed) {
 
-        if (kind != null && kind.length() > 0
-                && dateOfArrival != null && dateOfArrival.length() > 0
-                && amountOfFeed > 0
-                && price > 0) {
-            model.addAttribute("feed", feedService.create(feed));
-            return "redirect:/ui/feed/get/all";
-        }
-        return "redirect:/ui/feed/showNewForm";
+        feedService.update(feed);
+        return "redirect:/ui/feed/get/all";
     }
 
     @RequestMapping("/delete/{id}")

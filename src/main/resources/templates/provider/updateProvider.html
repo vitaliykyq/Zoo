@@ -2,96 +2,102 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Provider</title>
-    <link  th:href="@{/css/style.css}" rel="stylesheet">
-    <link  th:href="@{/css/animated.css}" rel="stylesheet">
+    <title>Add Provider</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
-<body>
-
+<body style="text-align: center" onclick="checkedTable()">
 <div>
-    <div style="text-align: left">
-
-        <div class="alex" onclick="animatedAlexHide()">
-            <img src="/image/alex.png">
-        </div>
-
-        <div class="showAlex" onclick="animatedAlexShow()">
-            <div class="circle"></div>
-            <div class="circle center"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-
-    <div class="elementSettings">
+    <div>
         <form action="#" th:action="@{/ui/provider/update}" th:object="${provider}"
               method="POST">
 
-            <h1>Update Provider</h1>
+            <h1>Add Provider</h1>
 
-            <table>
-                <tr>
-                    <td><label>Id</label></td>
-                    <td><input th:field="*{id}"  readonly required></td>
-                </tr>
-                <tr>
-                    <td><label>Name</label></td>
-                    <td><input th:field="*{name}"  required></td>
-                </tr>
-                <tr>
-                    <td><label>Kind</label></td>
-                    <td><input th:field="*{kind}"  required></td>
-                </tr>
-                <tr>
-                    <td><label>Address</label></td>
-                    <td><input th:field="*{address}"  required></td>
-                </tr>
-                <tr>
-                    <td><label>Cooperation Start Date</label></td>
-                    <td><input th:field="*{cooperationStartDate}"  required></td>
-                </tr>
-                <tr>
-                    <td><label>Cooperation Finish Date</label></td>
-                    <td><input th:field="*{cooperationFinishDate}"  required></td>
-                </tr>
+                <table class="edit">
+                    <tr>
+                        <td><label>Id</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{id}" onclick="checkedInput()" readonly required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Name</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{name}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Kind</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{kind}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>City</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{city}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>CooperationStartDate</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{cooperationStartDate}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>CooperationEndDate</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{cooperationEndDate}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+
             </table>
             <br>
             <br>
-
-            <div class="general">
-                <button type="submit"> &#10004;</button>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/provider/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Update</button>
             </div>
-
-
         </form>
-
-        <br><br>
-
-        <div class="ButtonBack">
-            <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
-        </div>
 
     </div>
 </div>
-
 </body>
 <script>
-    let alex = document.querySelector(".alex");
-    let showAlex = document.querySelector(".showAlex");
+    let table = document.querySelector(".edit");
+    let check = false;
 
-    function animatedAlexHide(){
-        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
-        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
     }
 
-    function animatedAlexShow(){
-        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
-        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
-        setTimeout(addAnimatedAlex, 1000);
+    function  checkedInput(){
+        check = true;
     }
-
-    function addAnimatedAlex() {
-        alex.style.animation = "1s linear 0s infinite alternate slidein";
-    }
-
 </script>
+
 </html>
