@@ -21,7 +21,7 @@ import java.util.List;
 public interface AnimalRepository extends MongoRepository<Animal, String> {
     public List<Animal> findAllByKindIs (String kind);
     public List<Animal> findAllByYearIs (int year);
-    public List<Animal> findAllByHeigthIs (double height);
+
     public List<Animal> findAllByWeightIs (double weight);
     public List<Animal> findAllByHeightGreaterThanEqual (double height);
     public List<Animal> findAllByWeightGreaterThanEqual (double weight);

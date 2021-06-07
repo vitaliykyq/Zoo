@@ -51,10 +51,7 @@ public class AnimalRestController {
     public List<Animal> getAllByYear(@PathVariable("year") int year){
         return service.getAllByYear(year) ;
     }
-    @GetMapping("/get/allByHeigthIs/{height}")
-    public List<Animal> getAllByHeight(@PathVariable("height") double height){
-        return service.getAllByHeight(height) ;
-    }
+
     @GetMapping("/get/allByWeigthIs/{weight}")
     public List<Animal> getAllByWeight(@PathVariable("weight") double weight){
         return service.getAllByWeight(weight) ;
@@ -67,10 +64,7 @@ public class AnimalRestController {
     public List<Animal> getAllByHeightGteIs(@PathVariable("height") double height){
         return service.getAllByHeightGte(height) ;
     }
-    @GetMapping("/get/allByHeigthLte/{height}")
-    public List<Animal> getAllByHeightLteIs(@PathVariable("height") double height){
-        return service.getAllByHeight(height) ;
-    }
+
     @GetMapping("/get/allByWeightGte/{weight}")
     public List<Animal> getAllByWeightGte(@PathVariable("weight") double weight){
         return service.getAllByWeightGte(weight) ;
@@ -87,14 +81,8 @@ public class AnimalRestController {
     public Object getAmountOfAnimalsByWeightGte(@PathVariable("weight") int weight){
         return service.getAmountOfAnimalsByWeightGte(weight) ;
     }
-    @GetMapping("/get/amountOfAnimalsByWeightLte")
-    public Object getAmountOfAnimalsByWeightLte(@PathVariable("weight") int weight){
-        return service.getAmountOfAnimalsByWeightLte(weight) ;
-    }
-    @GetMapping("/get/amountOfAnimalsByWeightGte")
-    public Object getAmountOfAnimalsByHeightGte(@PathVariable("heihgt") int heihgt){
-        return service.getAmountOfAnimalsByWeightGte(heihgt) ;
-    }
+
+
     @GetMapping("/get/amountOfAnimalsByWeightLte")
     public Object getAmountOfAnimalsByHeightLte(@PathVariable("heihgt") int heihgt){
         return service.getAmountOfAnimalsByWeightLte(heihgt) ;

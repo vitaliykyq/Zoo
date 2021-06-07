@@ -106,9 +106,6 @@ public class AnimalServiceImpl implements IAnimalService {
     public List<Animal> getAllByWeight (double weight){
         return repository.findAllByWeightIs(weight);
     }
-    public List<Animal> getAllByHeight(double height){
-        return repository.findAllByHeigthIs(height);
-    }
     public List<Animal> getAllByHeightGte(double height){
         return repository.findAllByHeightGreaterThanEqual(height);
     }
