@@ -2,111 +2,142 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Employee</title>
+    <title>Update Employee</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
-<body style="text-align: center" onclick="checkedTable()">
+<body style="text-align: center">
 <div>
-    <div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img th:src="@{/image/alex.png}">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/employee/update}" th:object="${employee}"
               method="POST">
 
-            <h1>Add Employee</h1>
+            <h1>Update Employee</h1>
 
-                <table class="edit">
-                    <tr>
-                        <td><label>Id</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{id}" onclick="checkedInput()" readonly required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Name</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{name}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Age</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{age}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Gender</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{gender}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Salary</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{salary}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>GotAJob</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{gotAJob}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Resigned</label></td>
-                        <td>
-                            <div class="input">
-                                <input th:field="*{resigned}" onclick="checkedInput()" required/>
-                                <div class="border-line"></div>
-                            </div>
-                        </td>
-                    </tr>
+            <table class="edit">
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{id}" readonly required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{name}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Age</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{age}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{gender}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Salary</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{salary}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>GotAJob</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{gotAJob}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Resigned</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{resigned}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
 
             </table>
-            <br>
-            <br>
-            <div class="control">
-                <div class="buttonBack">
-                    <a th:href = "@{/ui/employee/get/all}" class="containerButton">Back</a>
-                </div>
-                <button type="submit">Update</button>
-            </div>
+
         </form>
+        <br>
+        <br>
+
+        <div class="general">
+            <button type="submit"> &#10004;</button>
+        </div>
+
+        </form>
+
+        <br><br>
+
+        <div class="ButtonBack">
+            <a th:href="@{/ui/employee/get/all}" href="#">Back</a>
+        </div>
 
     </div>
 </div>
 </body>
+
 <script>
-    let table = document.querySelector(".edit");
-    let check = false;
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
 
-    function checkedTable(){
-        table.setAttribute("class", "edit");
-        if(check){
-            table.setAttribute("class", "edit border");
-        }
-        check = false;
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
     }
 
-    function  checkedInput(){
-        check = true;
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
     }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
+
 </script>
+
 
 </html>

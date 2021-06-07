@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Animal</title>
-    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
-<body style="text-align: center" onclick="checkedTable()">
+<body style="text-align: center">
 <div>
-    <div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img th:src="@{/image/alex.png}">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/animal/add}" th:object="${animal}"
               method="POST">
 
@@ -49,7 +67,7 @@
                     <td><label>Age</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{age}" onclick="checkedInput()" required/>
+                            <input th:field="*{year}" onclick="checkedInput()" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -141,7 +159,7 @@
                 </td>
 
             </table>
-
+        </form>
 
             <br>
             <br>
@@ -152,7 +170,6 @@
                 </div>
                 <button type="submit">Add</button>
             </div>
-        </form>
 
 
     </div>

@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Provider</title>
-    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
-<body style="text-align: center" onclick="checkedTable()">
+<body style="text-align: center">
 <div>
-    <div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img th:src="@{/image/alex.png}">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/provider/add}" th:object="${provider}"
               method="POST">
 
@@ -60,41 +78,46 @@
                     </td>
                 </tr>
 
+
             </table>
 
-
-            <br>
-            <br>
-
-            <div class="control">
-                <div class="buttonBack">
-                    <a th:href = "@{/ui/provider/get/all}" class="containerButton">Back</a>
-                </div>
-                <button type="submit">Add</button>
+            <div class="general">
+                <button type="submit"> &#10004;</button>
             </div>
+
         </form>
 
+            <br>
+            <br>
+
+            <div class="ButtonBack">
+                <a th:href="@{/ui/provider/get/all}" href="#">Back</a>
+            </div>
 
     </div>
 </div>
 </body>
+
 <script>
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
 
-    let table = document.querySelector(".edit");
-    let check = false;
-
-    function checkedTable(){
-        table.setAttribute("class", "edit");
-        if(check){
-            table.setAttribute("class", "edit border");
-        }
-        check = false;
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
     }
 
-    function  checkedInput(){
-        check = true;
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
     }
 
 </script>
+
 
 </html>

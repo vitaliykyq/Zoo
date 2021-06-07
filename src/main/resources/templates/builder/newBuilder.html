@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Builder</title>
-    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animated.css}" rel="stylesheet">
 </head>
-<body style="text-align: center" onclick="checkedTable()">
+<body style="text-align: center">
 <div>
-    <div>
+    <div style="text-align: left">
+
+        <div class="alex" onclick="animatedAlexHide()">
+            <img th:src="@{/image/alex.png}">
+        </div>
+
+        <div class="showAlex" onclick="animatedAlexShow()">
+            <div class="circle"></div>
+            <div class="circle center"></div>
+            <div class="circle"></div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="elementSettings">
         <form action="#" th:action="@{/ui/builder/add}" th:object="${builder}"
               method="POST">
 
@@ -56,7 +74,7 @@
                 </tr>
 
             </table>
-
+        </form>
 
             <br>
             <br>
