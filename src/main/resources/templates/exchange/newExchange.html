@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Exchange</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center" onclick="checkedTable()">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/exchange/add}" th:object="${exchange}"
+              method="POST">
+
+            <h1>Add Exchange</h1>
+
+            <table class="edit">
+                <tr>
+                    <td><label>Zoo</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{zoo}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Animal</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{animal}" onclick="checkedInput()" required>
+                                <option th:each="animalListId: ${animalListId}"
+                                        th:value="${animalListId.id}" th:text="${animalListId.kind}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>IsTaken</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{isTaken}" onclick="checkedInput()" required>
+                                <option th:value="${true}">True</option>
+                                <option th:value="${false}">False</option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Date</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{date}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <br>
+            <br>
+
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/exchange/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+</body>
+<script>
+
+    let table = document.querySelector(".edit");
+    let check = false;
+
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
+    }
+
+    function  checkedInput(){
+        check = true;
+    }
+
+</script>
+
+</html>

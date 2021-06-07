@@ -15,8 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/ui/provider")
@@ -24,12 +22,12 @@ import java.util.List;
 public class ProviderUIController {
 
     @Autowired
-    ProviderServiceImpl service;
+    ProviderServiceImpl providerService;
 
     @RequestMapping("/get/all")
     public String showAll(Model model){
 
-        List<Provider> providerList = service.getAll();
+        List<Provider> providerList = providerService.getAll();
         model.addAttribute("providerList", providerList);
 
         return "provider/providerList";
@@ -37,8 +35,8 @@ public class ProviderUIController {
 
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
-        Provider provider = service.getById(id);
-        model.addAttribute("provider", provider);
+        Provider provider = providerService.getById(id);
+        model.addAttribute("provider",provider);
         return "provider/updateProvider";
     }
 
@@ -51,34 +49,20 @@ public class ProviderUIController {
 
     @PostMapping("/add")
     public String add(Model model, @ModelAttribute("employee") @RequestBody Provider provider) {
-        String name = provider.getName();
-        String kind = provider.getKind();
-        String address = provider.getAddress();
-        String cooperationStartDate = provider.getCooperationStartDate();
-        String cooperationFinishDate = provider.getCooperationFinishDate();
-        List<Provider> providerList = service.getAll();
-
-        if (name != null && name.length() > 0
-                && kind != null && kind.length() > 0
-                && address != null && address.length() > 0
-                && cooperationStartDate != null && cooperationStartDate.length() > 0
-                && cooperationFinishDate != null && cooperationFinishDate.length() > 0) {
-            model.addAttribute("provider", service.create(provider));
-            return "redirect:/ui/provider/get/all";
-        }
-        return "redirect:/ui/provider/showNewForm";
+        model.addAttribute("provider", providerService.create(provider));
+        return "redirect:/ui/provider/get/all";
     }
 
     @PostMapping("/update")
     public String update(Model model, @ModelAttribute("employee") @RequestBody Provider provider) {
 
-        service.update(provider);
+        providerService.update(provider);
         return "redirect:/ui/provider/get/all";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable String id){
-        service.delete(id);
+        providerService.delete(id);
         return "redirect:/ui/provider/get/all";
     }
 }

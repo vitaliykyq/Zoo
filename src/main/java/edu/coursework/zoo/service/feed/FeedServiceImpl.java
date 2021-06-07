@@ -1,6 +1,7 @@
 package edu.coursework.zoo.service.feed;
 
 import edu.coursework.zoo.model.Feed;
+import edu.coursework.zoo.model.Provider;
 import edu.coursework.zoo.repository.feed.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,11 @@ public class FeedServiceImpl implements IFeedService {
     @Override
     public Feed update(Feed feed) {
         feed.setModified_at(new Date());
-        return repository.save(feed);
+        feed.setCreated_at(repository.findById(feed.getId())
+                .orElse(null)
+                .getCreated_at());
+        repository.save(feed);
+        return feed;
     }
 
     @Override

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Employee</caption>
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Person</th>
+            <th scope="col">Examination</th>
+            <th scope="col">Documents</th>
+            <th scope="col">Specialty</th>
+            <th scope="col">Form of study</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="employee: ${employeeList}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.gotAJob}"></td>
+            <td th:text="${employee.resigned}"></td>
+            <td th:text="${employee.created_at}"></td>
+            <td th:text="${employee.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/employee/delete/{id}(id=${employee.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/employee/showUpdateForm/{id}(id=${employee.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/employee/showNewApplicantForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>

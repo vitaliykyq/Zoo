@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Medical</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center" onclick="checkedTable()">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/medical/update}" th:object="${medical}"
+              method="POST">
+
+            <h1>Add Medical</h1>
+
+                <table class="edit">
+                    <tr>
+                        <td><label>Id</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{id}" onclick="checkedInput()" readonly required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Veterinarian</label></td>
+                        <td>
+                            <div class="input">
+                                <select th:field="*{veterinarian}" onclick="checkedInput()" required>
+                                    <option th:each="veterinarianListId: ${veterinarianListId}"
+                                            th:value="${veterinarianListId.id}" th:text="${veterinarianListId.employee.name}">
+                                    </option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Vaccination</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{vaccination}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalWasSick</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{animalWasSick}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalIsSick</label></td>
+                        <td>
+                            <div class="input">
+                                <select multiple th:field="*{animalIsSick}" onclick="checkedInput()" required>
+                                    <option value="Test">Test</option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/medical/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<script>
+    let table = document.querySelector(".edit");
+    let check = false;
+
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
+    }
+
+    function  checkedInput(){
+        check = true;
+    }
+</script>
+
+</html>

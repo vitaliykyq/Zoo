@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Nutrition</caption>
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Feed</th>
+            <th scope="col">FeedingTime</th>
+            <th scope="col">Season</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="nutrition: ${nutritionList}">
+            <td th:text="${nutrition.id}"></td>
+            <td th:text="${nutrition.feed.kind}"></td>
+            <td>
+                <ol>
+                    <li th:each="feedingTimeList: ${nutrition.feedingTime}">
+                        <span th:text="${feedingTimeList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td th:text="${nutrition.season}"></td>
+            <td th:text="${nutrition.created_at}"></td>
+            <td th:text="${nutrition.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/nutrition/delete/{id}(id=${nutrition.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/nutrition/showUpdateForm/{id}(id=${nutrition.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/nutrition/showNewApplicantForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cleaner List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Cleaner</caption>
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Animals</th>
+            <th scope="col">AccessToAnimals</th>
+            <th scope="col">CleaningType</th>
+            <th scope="col">Employee</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">ModifiedAt</th>
+            <th scope="col" colspan="2">OPTIONS</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr th:each="cleaner: ${cleanerList}">
+            <td th:text="${cleaner.id}"></td>
+            <td>
+                <ol>
+                    <li th:each="animalsListIds: ${cleaner.animals}">
+                        <span th:text="${animalsListIds.kind}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                    <li th:each="accessToAnimalsListIds: ${cleaner.accessToAnimals}">
+                        <span th:text="${accessToAnimalsListIds.kind}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                    <li th:each="cleaningTypeList: ${cleaner.cleaningType}">
+                        <span th:text="${cleaningTypeList}"></span>
+                    </li>
+                </ol>
+            </td>
+            <td th:text="${cleaner.employee.name}"></td>
+            <td th:text="${cleaner.created_at}"></td>
+            <td th:text="${cleaner.modified_at}"></td>
+            <td class="options">
+                <a  th:href="@{/ui/cleaner/delete/{id}(id=${cleaner.id})}">
+                    <button class="first">Delete</button>
+                </a>
+                <a th:href="@{/ui/cleaner/showUpdateForm/{id}(id=${cleaner.id})}">
+                    <button class="last">Edit</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/cleaner/showNewApplicantForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>

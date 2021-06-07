@@ -11,18 +11,18 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "animal")
+@Document(collection="animal")
 public class Animal {
-@Id
+
     private String id;
 
     private String kind;
@@ -31,13 +31,12 @@ public class Animal {
     private int year;
     private String gender;
     private String physicalCondition;
-    private Date animalArrived;
-    private Date animalLeft;
-    private Cage cage;
+    private String animalArrived;
+    private String animalLeft;
+    private List<String> cage;
     private double weight;
     private double height;
     private Animal couple;
-    private Posterity posterity;
     private Medical medical;
 
 

@@ -11,7 +11,6 @@ package edu.coursework.zoo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -21,13 +20,13 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "nutririon")
+@Document(collection="nutrition")
 public class Nutrition {
-@Id
+
     private String id;
 
     private Feed feed;
-    private ArrayList<Date> feedingTime;
+    private ArrayList<String> feedingTime;
     private String season;
 
     private Date created_at;

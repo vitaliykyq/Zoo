@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Animal</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center" onclick="checkedTable()">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/animal/update}" th:object="${animal}"
+              method="POST">
+
+            <h1>Add Animal</h1>
+
+                <table class="edit">
+                    <tr>
+                        <td><label>Id</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{id}" onclick="checkedInput()" readonly required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Kind</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{kind}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>ClimaticZone</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{climaticZone}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Nutrition</label></td>
+                        <td>
+                            <div class="input">
+                                <select th:field="*{nutrition}" onclick="checkedInput()" required>
+                                    <option th:each="nutritionListId: ${nutritionListId}"
+                                            th:value="${nutritionListId.id}" th:text="${nutritionListId.feed.kind}">
+                                    </option>
+                                </select>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Age</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{age}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{gender}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>PhysicalCondition</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{physicalCondition}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalArrived</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{animalArrived}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>AnimalLeft</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{animalLeft}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <td><label>Сage</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{cage}" onclick="checkedInput()" required>
+                                <option value="Тест">Test</option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                    <tr>
+                        <td><label>Weight</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{weight}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Height</label></td>
+                        <td>
+                            <div class="input">
+                                <input th:field="*{height}" onclick="checkedInput()" required/>
+                                <div class="border-line"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <td><label>Couple</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{couple}" onclick="checkedInput()" required>
+                                <option th:each="animalListId: ${animalListId}"
+                                        th:value="${animalListId.id}" th:text="${animalListId.kind}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                    <td><label>Medical</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{medical}" onclick="checkedInput()" required>
+                                <option th:each="medicalListId: ${medicalListId}"
+                                        th:value="${medicalListId.id}" th:text="${medicalListId.veterinarian.employee.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/animal/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<script>
+    let table = document.querySelector(".edit");
+    let check = false;
+
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
+    }
+
+    function  checkedInput(){
+        check = true;
+    }
+</script>
+
+</html>
