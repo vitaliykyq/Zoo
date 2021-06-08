@@ -141,28 +141,19 @@
                         </div>
                     </td>
                 </tr>
-                <td><label>Couple</label></td>
-                <td>
-                    <div class="input">
-                        <select th:field="*{couple}" onclick="checkedInput()" required>
-                            <option th:each="animalListId: ${animalListId}"
-                                    th:value="${animalListId.id}" th:text="${animalListId.kind}">
-                            </option>
-                        </select>
-                        <div class="border-line"></div>
-                    </div>
-                </td>
-                <td><label>Medical</label></td>
-                <td>
-                    <div class="input">
-                        <select th:field="*{medical}" onclick="checkedInput()" required>
-                            <option th:each="medicalListId: ${medicalListId}"
-                                    th:value="${medicalListId.id}" th:text="${medicalListId.veterinarian.employee.name}">
-                            </option>
-                        </select>
-                        <div class="border-line"></div>
-                    </div>
-                </td>
+                <tr>
+                    <td><label>Medical</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{medical}" onclick="checkedInput()" required>
+                                <option th:each="medicalListId: ${medicalListId}"
+                                        th:value="${medicalListId.id}" th:text="${medicalListId.veterinarian.employee.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
 
             </table>
         </form>
