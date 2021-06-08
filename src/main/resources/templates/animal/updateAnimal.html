@@ -141,19 +141,6 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td><label>Medical</label></td>
-                    <td>
-                        <div class="input">
-                            <select th:field="*{medical}" onclick="checkedInput()" required>
-                                <option th:each="medicalListId: ${medicalListId}"
-                                        th:value="${medicalListId.id}" th:text="${medicalListId.veterinarian.employee.name}">
-                                </option>
-                            </select>
-                            <div class="border-line"></div>
-                        </div>
-                    </td>
-                </tr>
 
             </table>
         </form>

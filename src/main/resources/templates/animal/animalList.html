@@ -43,8 +43,6 @@
             <th scope="col">Cage</th>
             <th scope="col">Weight</th>
             <th scope="col">Height</th>
-            <th scope="col">Couple</th>
-            <th scope="col">Medical</th>
             <th scope="col">CreatedAt</th>
             <th scope="col">ModifiedAt</th>
             <th scope="col" colspan="2">OPTIONS</th>
@@ -73,7 +71,6 @@
             </td>
             <td th:text="${animal.weight}"></td>
             <td th:text="${animal.height}"></td>
-            <td th:text="${animal.medical.veterinarian.employee.name}"></td>
             <td th:text="${animal.created_at}"></td>
             <td th:text="${animal.modified_at}"></td>
             <td class="options">

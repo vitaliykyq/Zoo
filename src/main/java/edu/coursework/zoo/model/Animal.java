@@ -36,7 +36,6 @@ public class Animal {
     private List<String> cage;
     private double weight;
     private double height;
-    private Medical medical;
 
 
     private Date created_at;
