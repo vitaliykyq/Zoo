@@ -1,0 +1,38 @@
+@keyframes slidein {
+    from { top: -40px; }
+    to {
+        top: -20px;
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes hiddenAlex {
+    from {}
+    to { top: -340px; }
+}
+
+@keyframes visiblePlatform {
+    from {}
+    to { top: -5px; }
+}
+
+@keyframes hiddenPlatform {
+    from { top: -5px; }
+    to { top: -50px; }
+}
+
+@keyframes visibleAlex {
+    from { top: -340px; }
+    to { top: -40px; }
+}
+
+
+@keyframes generalAnimated {
+    from { right: -300px; }
+    to { right: 0; }
+}
+
+@keyframes generalAnimatedBack {
+    from { left: -300px; }
+    to { left: 0; }
+}
