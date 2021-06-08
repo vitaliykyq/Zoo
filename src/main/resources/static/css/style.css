@@ -219,3 +219,17 @@ td.insert:hover{
     background: #fff7008f !important;
     cursor: pointer;
 }
+
+ul.menuList{
+    padding: 0;
+}
+
+.menuList a{
+    text-decoration: none;
+    font-size:25px;
+    color:#18009f;
+}
+
+.menuList a:hover{
+    text-decoration: underline;
+}

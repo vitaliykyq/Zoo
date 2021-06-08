@@ -83,17 +83,26 @@
         </tbody>
 
     </table>
-    <br>
 
-    <div style="text-align: center">
-        <a th:href = "@{/ui/cleaner/showNewApplicantForm}" class="containerButton">Add</a>
-    </div>
-</div>
 </body>
 <script>
-    $('button').on('click', function(){
-        $('body').toggleClass('open');
-    });
+    let alex = document.querySelector(".alex");
+    let showAlex = document.querySelector(".showAlex");
+
+    function animatedAlexHide(){
+        alex.style.animation = "1s linear 0s 1 forwards hiddenAlex";
+        showAlex.style.animation = "1s linear 0s 1 forwards visiblePlatform";
+    }
+
+    function animatedAlexShow(){
+        showAlex.style.animation = "1s linear 0s 1 forwards hiddenPlatform";
+        alex.style.animation = "1s linear 0s 1 forwards visibleAlex";
+        setTimeout(addAnimatedAlex, 1000);
+    }
+
+    function addAnimatedAlex() {
+        alex.style.animation = "1s linear 0s infinite alternate slidein";
+    }
 
 </script>
 
