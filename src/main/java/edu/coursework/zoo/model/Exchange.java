@@ -27,7 +27,7 @@ public class Exchange {
 
     private String zoo;
     private Animal animal;
-    private boolean isTaken;
+    private Boolean isTaken;
     private String date;
 
     private Date created_at;
